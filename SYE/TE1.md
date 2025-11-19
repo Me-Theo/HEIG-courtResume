@@ -15,8 +15,8 @@ Current Privilege Level
 |Priviledge Instruction |YES|NO|
 |Direct access to all memory|YES|NO|
 |Direct access to devices|YES|NO|
-|run by OS |YES|NO|
-|run by APPLICATION |NO|YES|
+|run by **OS** |**YES**|NO|
+|run by **APPLICATION** |NO|**YES**|
 
 ## Interuption
 2 type : 
@@ -212,7 +212,48 @@ fd_pipe=open(pipe_name, O_WRONLY);
 - O_CREATE = si pas trouver -> crée
 
 # Chap 7 | Signeaux
+- En gros c'est un evenement qui dois être traiter balancer de manière async
+- Un process reagie à c'est signau et les traite grace au **handler** dans le **user space**
+- UN SEUL EXEMPLAIRE de signale par type dans la list d'attente
+Genre si spam de ctrl-c -> 1 seul pris en compte
+- fils d'attent **FIFO**
+- masquer un signaux -> dans que masquer ingoré, demasquer -> efin pris en compte
+- possible d'ingoré un signaux
 
+### Signaux imporant 
+- SIG**INT** : ctrl-C -> interupt
+- SIG**KILL** : terminaison
+- SIG**TERM** : aussi terminaison
+- SIG**USR1** : Signal emis par process user
+- SIG**USR2** : ausi Signal emis par process user
+- SIG**CHILD** : terminaison d'un enfant
+
+### libc
+- **signal(int,sighandler_t)** -> associe un signal a une fnc
+```c
+void fncRandom(int sig){...}
+
+singal(SIGUSR1,fncRandom);
+```
+- **kill(pid, int)** -> send the SIGKILL to a process but can also send a specific signal
+
+- **SIG_IGN** -> ignore le signal 
+```c
+singal(SIGUSR1,SIG_IGN);
+```
+
+
+### Socket
+|Client|Sever|
+|--|--|
+|socket(...)|socket(...)|
+|  |bind(...)|
+|connect(...)|listen(...)|
+|   |accept(...)|
+|send(...)|recv(...)|
+|recv(...)|send(...)|
+|  |close(connection)|
+|close(...)|close(...)|
 
 # END >:[
 ![alt text](GpqgF8GagAAf_Z0.jpg)
