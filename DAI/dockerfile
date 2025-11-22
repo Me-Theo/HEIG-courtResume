@@ -1,0 +1,19 @@
+# Image sur la quelle on ce base pour crée la notre
+FROM ubuntu:24.04
+# Pour une app java FROM eclipse-temurin:21-jre
+
+
+# Crée une variable d'environement
+ENV key=value
+
+# copie un directory (Sur notre machine) dans un autre (dans l'image)
+COPY sourceDir destDir
+
+# en gros, c'est un cd dans l'imagine
+WORKDIR path
+
+# Exec command
+CMD ["echo", "Hello, World!"]
+
+# Expose port
+EXPOSE 8000
