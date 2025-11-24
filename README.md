@@ -5,7 +5,14 @@ My lazy ass can't to shit in time, i need some resume, check out my sick markdow
 don't ask
 
 ### BA 2
-don't ask
+- ASD 
+  - [Exams](./ASD/README.md)
+- RXI 
+  - [Exams](./RXI/Exam-CheatSheet.pdf)
+- ISI 
+  - [Exams](./ISI/Exam-CheatSheet.pdf)
+- ARO 
+  - [Exams](./ARO/Exam-Cheatsheet.pdf)
 
 ### BA 3
 - SYE
