@@ -8,7 +8,10 @@ don't ask
 don't ask
 
 ### BA 3
-- [SYE](./SYE/TE1.md)
+- SYE
+  - [T1](./SYE/TE1.md)
+- DAI
+  - [T1](./DAI/TE1.md)
 ### BA 4
 
 ### BA 5

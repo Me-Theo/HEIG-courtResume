@@ -12,7 +12,7 @@ Y a 2 type de donner :
 - Text : c'est une version interpreter de la donner pour la transformer en text
 
 ##### Utiliser IO
-Em gros, y a InputStream and OutputStream, c'est des, Stream (no way) et ça à le meme fonctionement / logic qu'en c++
+En gros, y a InputStream and OutputStream, c'est des, Stream (no way) et ça à le meme fonctionement / logic qu'en c++
 - Open the stream
 - Use it
 - Close the stream
@@ -116,7 +116,7 @@ docker run <image-name> <command>
 docker run -d --rm -p 8080:8080 plantuml/plantuml-server
 -d = run in background
 --rm = remove the container on stop
--p 8080:8080 = map machin port 8080 to this container port 8080
+-p HOST:CONTAINER = map machin port 8080 to this container port 8080
 
 # Delete all stopped containers
 docker container prune
@@ -145,4 +145,114 @@ CMD ["echo", "Hello, World!"]
 
 # Expose port
 EXPOSE 8000
+```
+
+## Protocol
+##### Define 
+- C'est pourquoi ?
+- quel port ? 
+- ça marche sur quoi (TCP/UDP)
+- qui commence la connection
+- c'est quoi les messages
+- c'est quoi les erreurs
+
+##### TCP 
+###### Client
+```Java
+// declare socket, writer, reader
+try (Socket socket = new Socket(HOST, PORT);
+      Reader reader = new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8);
+      BufferedReader in = new BufferedReader(reader);
+      Writer writer = new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8);
+      BufferedWriter out = new BufferedWriter(writer); ) {
+    // ...
+} catch (IOException e) {
+  // ...
+}
+```
+###### Server
+```Java
+// declare server socket
+try(ServerSocket serverSocket = new ServerSocket(PORT)){
+  // ...
+}catch(Exception e){
+  // ...
+}
+
+// declare reader/writer
+try (
+    Socket socket = serverSocket.accept();
+    Reader reader = new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8);
+    BufferedReader in = new BufferedReader(reader);
+    Writer writer = new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8);
+    BufferedWriter out = new BufferedWriter(writer)) {
+      // ...
+  }catch (IOException e) {
+    // ...
+}
+```
+
+##### UDP 
+###### Client
+```Java
+// declare socket
+try (DatagramSocket socket = new DatagramSocket()) {
+    // Get the server address
+    InetAddress serverAddress = InetAddress.getByName(HOST);
+
+    // Transform the message into a byte array - always specify the encoding
+    byte[] buffer = MESSAGE.getBytes(StandardCharsets.UTF_8);
+
+    // Create a packet with the message, the server address and the port
+    DatagramPacket packet = new DatagramPacket(buffer, buffer.length, serverAddress, PORT);
+
+    // Send the packet
+    socket.send(packet);
+
+    System.out.println("[Client] Request sent: " + MESSAGE);
+} catch (Exception e) {
+  System.err.println("[Client] An error occurred: " + e.getMessage());
+}
+```
+###### Server
+```Java
+// declare socket
+try (DatagramSocket socket = new DatagramSocket(PORT)) {
+  while (!socket.isClosed()) {
+    // Create a buffer for the incoming request
+    byte[] requestBuffer = new byte[1024];
+
+    // Create a packet for the incoming request
+    DatagramPacket requestPacket = new DatagramPacket(requestBuffer, requestBuffer.length);
+
+    // Receive the packet - this is a blocking call
+    socket.receive(requestPacket);
+
+    // Transform the request into a string
+    String request =
+        new String(
+            requestPacket.getData(),
+            requestPacket.getOffset(),
+            requestPacket.getLength(),
+            StandardCharsets.UTF_8);
+  }
+} catch (Exception e) {
+  // ...
+}
+```
+
+###### cast
+- Broadcast :
+```Java
+// add this
+socket.setBroadcast(true);
+// init with mask
+InetAddress serverAddress = InetAddress.getByName("172.25.255.255");
+```
+- Broadcast :
+```Java
+// add this
+socket.setBroadcast(true);
+// init with mask
+InetAddress serverAddress = InetAddress.getByName("172.25.255.255");
 ```
