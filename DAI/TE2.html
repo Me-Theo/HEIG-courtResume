@@ -1,0 +1,648 @@
+<!DOCTYPE html><html><head>
+      <title>TE2</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\temax\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.20\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="te-2">TE 2 </h1>
+<h2 id="-docker-">💀💀💀 DOCKER 💀💀💀 </h2>
+<h5 id="cheatsheet">Cheatsheet </h5>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token comment"># Build and tag an image</span>
+<span class="token function">docker</span> build <span class="token parameter variable">-t</span> <span class="token operator">&lt;</span>image-name<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>build-context<span class="token operator">&gt;</span>
+
+<span class="token comment"># Start a container using its image name</span>
+<span class="token function">docker</span> run <span class="token operator">&lt;</span>image-name<span class="token operator">&gt;</span>
+
+<span class="token comment"># Start a container in background</span>
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token operator">&lt;</span>image-name<span class="token operator">&gt;</span>
+
+<span class="token comment"># Display all running containers</span>
+<span class="token function">docker</span> <span class="token function">ps</span>
+
+<span class="token comment"># Stop a container</span>
+<span class="token function">docker</span> stop <span class="token operator">&lt;</span>container-id<span class="token operator">&gt;</span>
+
+<span class="token comment"># Access a running container</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> <span class="token operator">&lt;</span>container-id<span class="token operator">&gt;</span> /bin/sh
+
+<span class="token comment"># Create a Docker network</span>
+<span class="token function">docker</span> network create <span class="token operator">&lt;</span>name<span class="token operator">&gt;</span>
+
+<span class="token comment"># Start a container and override the entry point</span>
+<span class="token function">docker</span> run <span class="token parameter variable">--entrypoint</span> /bin/sh <span class="token operator">&lt;</span>image-name<span class="token operator">&gt;</span>
+
+<span class="token comment"># Start a container and override the command</span>
+<span class="token function">docker</span> run <span class="token operator">&lt;</span>image-name<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>command<span class="token operator">&gt;</span>
+
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">--rm</span> <span class="token parameter variable">-p</span> <span class="token parameter variable">--network</span> <span class="token operator">&lt;</span>networkName<span class="token operator">&gt;</span> <span class="token number">8080</span>:8080 plantuml/plantuml-server
+<span class="token parameter variable">-d</span> <span class="token operator">=</span> run <span class="token keyword keyword-in">in</span> background
+<span class="token parameter variable">--rm</span> <span class="token operator">=</span> remove the container on stop
+<span class="token parameter variable">-p</span> HOST:CONTAINER <span class="token operator">=</span> map machin port <span class="token number">8080</span> to this container port <span class="token number">8080</span>
+
+<span class="token comment"># Delete all stopped containers</span>
+<span class="token function">docker</span> container prune
+
+<span class="token comment"># Delete all images</span>
+<span class="token function">docker</span> image prune
+
+<span class="token comment"># run compose</span>
+<span class="token function">docker</span> compose up <span class="token parameter variable">-d</span>
+<span class="token parameter variable">-d</span> <span class="token operator">=</span> run <span class="token keyword keyword-in">in</span> background
+
+<span class="token comment"># stop and remove compose</span>
+<span class="token function">docker</span> compose down
+
+<span class="token comment">#IF YOU WANT TO exec, run, ps, ... -&gt; JUST ADD 'compose' before the command </span>
+</code></pre><h5 id="create-a-docker-file">Create a docker file </h5>
+<pre data-role="codeBlock" data-info="Docker" class="language-docker Docker"><code><span class="token comment"># Image sur la quelle on ce base pour crée la notre</span>
+<span class="token instruction"><span class="token keyword keyword-FROM">FROM</span> ubuntu:24.04</span>
+<span class="token comment"># Pour une app java FROM eclipse-temurin:21-jre</span>
+
+<span class="token comment"># Crée une variable d'environement</span>
+<span class="token instruction"><span class="token keyword keyword-ENV">ENV</span> key=value</span>
+
+<span class="token comment"># copie un directory (Sur notre machine) dans un autre (dans l'image)</span>
+<span class="token instruction"><span class="token keyword keyword-COPY">COPY</span> sourceDir destDir</span>
+
+<span class="token comment"># en gros, c'est un cd dans l'imagine</span>
+<span class="token instruction"><span class="token keyword keyword-WORKDIR">WORKDIR</span> path</span>
+
+<span class="token comment"># Exec command</span>
+<span class="token instruction"><span class="token keyword keyword-CMD">CMD</span> [<span class="token string">"echo"</span>, <span class="token string">"Hello, World!"</span>]</span>
+
+<span class="token comment"># Expose port</span>
+<span class="token instruction"><span class="token keyword keyword-EXPOSE">EXPOSE</span> 8000</span>
+</code></pre><h5 id="️️️-docker-compose-️️️">↗️⁉️⁉️ Docker compose ⁉️⁉️↗️ </h5>
+<p>OK, en gros, un docker compose c'est un fichier qui sert à crée une infra, genre le container c'est les machines et le compose il dit just qu'il faut pour que ça marche et dans quel ordre les lancers (peut aussi servire à crée les images)</p>
+<ul>
+<li><code>service</code> : Nom du service</li>
+<li><code>image</code> : image à utiliser</li>
+<li><code>port</code> : port a exposer (HOST:CONTAINER)</li>
+<li><code>volumes</code> : mount volumes int the container</li>
+<li><code>environment</code> : ENV variable</li>
+<li><code>network</code> : network entre container</li>
+</ul>
+<h5 id="example">Example </h5>
+<pre data-role="codeBlock" data-info="compose" class="language-compose compose"><code>networks:
+  pantoufle:
+
+services:
+  ncat-server:
+    hostname: my-server
+    image: ncat
+    command:
+      - -l
+      - "1234"
+    networks:
+      - pantoufle
+
+  ncat-client:
+    image: ncat
+    command:
+      - my-server
+      - "1234"
+    networks:
+      - pantoufle
+</code></pre><h2 id="ssh--scp">SSH &amp; SCP </h2>
+<p>(SSH, GPC, etc.) =&gt; public/private keys security</p>
+<h3 id="ssh">SSH </h3>
+<p>SSH is a protocol use in TCP (port 22)<br>
+Uliser pour : remote machine connection, copy files (with SCP)</p>
+<p>SSH is also the name of the software that implements the SSH protocol on most machine<br>
+<img src="image-1.png" alt="alt text"></p>
+<h4 id="ssh-key-algo">SSH key algo </h4>
+<ul>
+<li>RSA.</li>
+<li>DSA.</li>
+<li>ECDSA <strong>&lt;- Most recent/secure</strong></li>
+<li>Ed25519 <strong>&lt;- Most recent/secure</strong></li>
+</ul>
+<h4 id="ssh-key-fingerprint">SSH key fingerprint </h4>
+<p>C'est le hahs de la public key (utiliser pour identifier la clef public)<br>
+ça permette de verifier que la clef utiliser est bien la bonne et d'eviter les <strong>middle man attacks</strong></p>
+<p>(Known hosts (hosts that you have allowed to connect to) are stored in the <code>~/.ssh/known_hosts</code> file)</p>
+<h4 id="ssh-key-generation">SSH key generation </h4>
+<p>Fait avec <code>ssh-keygen</code> (command) =&gt; crée une clef public et une clef privée<br>
+(public key = <code>&lt;key&gt;.pub</code> | private key = <code>&lt;key&gt;</code>)<br>
+Une passpharse peut être utiliser pour encrypter la private key</p>
+<h3 id="scp">SCP </h3>
+<p>c'est un protocol utiliser pour copier des fichier d'une machine à une autre en remote (remplace FTP)</p>
+<h2 id="http--curl">HTTP &amp; curl </h2>
+<p><strong>Javalin</strong> (basé sur <strong>Jetty</strong>) (<strong>Quarkus</strong> ou <strong>Spring Boot</strong> pour la production)</p>
+<p><strong>curl</strong> = command line tool pour envoyer des requet (HTTP(S), FTP(S), SFTP, etc.)<br>
+<code>curl -X POST http://localhost:8080</code><br>
+<code>curl -X POST -d "Hello, world!" http://localhost:8080/body-demo</code><br>
+GET by default<br>
+-X = use HTTP<br>
+-v = print request headers<br>
+-i = print response header<br>
+-d = set http body (to "Hello, world!")<br>
+-H = set header | -H "Accept: text/plain"</p>
+<h3 id="javalin">Javalin </h3>
+<pre data-role="codeBlock" data-info="Java" class="language-java Java"><code><span class="token keyword keyword-public">public</span> <span class="token keyword keyword-static">static</span> <span class="token keyword keyword-void">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Javalin</span> app <span class="token operator">=</span> <span class="token class-name">Javalin</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// ### Path parameter ###</span>
+    app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>
+        <span class="token string">"/content/{contentId}"</span><span class="token punctuation">,</span>
+        ctx <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+          <span class="token class-name">String</span> contentID <span class="token operator">=</span> ctx<span class="token punctuation">.</span><span class="token function">pathParam</span><span class="token punctuation">(</span><span class="token string">"contentId"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          ctx<span class="token punctuation">.</span><span class="token function">result</span><span class="token punctuation">(</span><span class="token string">"GET "</span><span class="token operator">+</span>contentID<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// ### query parameter ###</span>
+    app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>
+        <span class="token string">"/content/{contentId}"</span><span class="token punctuation">,</span>
+        ctx <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+            <span class="token comment">//?id=test&amp;data=prout</span>
+            <span class="token class-name">String</span> id <span class="token operator">=</span> ctx<span class="token punctuation">.</span><span class="token function">queryParam</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">String</span> data <span class="token operator">=</span> ctx<span class="token punctuation">.</span><span class="token function">queryParam</span><span class="token punctuation">(</span><span class="token string">"data"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>id <span class="token operator">==</span> <span class="token keyword keyword-null">null</span> <span class="token operator">||</span> data <span class="token operator">==</span> <span class="token keyword keyword-null">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">//io.javalin.http.BadRequestResponse;</span>
+                <span class="token keyword keyword-throw">throw</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">BadRequestResponse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+            <span class="token punctuation">}</span>
+          ctx<span class="token punctuation">.</span><span class="token function">result</span><span class="token punctuation">(</span><span class="token string">"GET "</span><span class="token operator">+</span>id<span class="token operator">+</span><span class="token string">" "</span><span class="token operator">+</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    app<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span>
+        <span class="token string">"/data"</span><span class="token punctuation">,</span>
+        ctx <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+            <span class="token comment">// HTTP body</span>
+            <span class="token class-name">String</span> data <span class="token operator">=</span> ctx<span class="token punctuation">.</span><span class="token function">body</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ctx<span class="token punctuation">.</span><span class="token function">result</span><span class="token punctuation">(</span><span class="token string">"POST msg"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token class-name">HttpStatus</span><span class="token punctuation">.</span><span class="token constant">CREATED</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    app<span class="token punctuation">.</span><span class="token function">patch</span><span class="token punctuation">(</span>
+        <span class="token string">"/"</span><span class="token punctuation">,</span>
+        ctx <span class="token operator">-&gt;</span>
+            ctx<span class="token punctuation">.</span><span class="token function">result</span><span class="token punctuation">(</span><span class="token string">"PACTH msg"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token class-name">HttpStatus</span><span class="token punctuation">.</span><span class="token constant">OK</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    app<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>
+        <span class="token string">"/"</span><span class="token punctuation">,</span>
+        ctx <span class="token operator">-&gt;</span>
+            ctx<span class="token punctuation">.</span><span class="token function">result</span><span class="token punctuation">(</span><span class="token string">"DEL msg"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token class-name">HttpStatus</span><span class="token punctuation">.</span><span class="token constant">NO_CONTENT</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    app<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token number">8080</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p>WITH Content type</p>
+<pre data-role="codeBlock" data-info="Java" class="language-java Java"><code>app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/content/{contentId}"</span><span class="token punctuation">,</span>
+    ctx <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+        <span class="token class-name">String</span> acceptHeader <span class="token operator">=</span> ctx<span class="token punctuation">.</span><span class="token function">header</span><span class="token punctuation">(</span><span class="token string">"Accept"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>acceptHeader <span class="token operator">==</span> <span class="token keyword keyword-null">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword keyword-throw">throw</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">BadRequestResponse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>acceptHeader<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"text/html"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ctx<span class="token punctuation">.</span><span class="token function">contentType</span><span class="token punctuation">(</span><span class="token string">"text/html"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ctx<span class="token punctuation">.</span><span class="token function">result</span><span class="token punctuation">(</span><span class="token string">"&lt;h1&gt;Hello, world!&lt;/h1&gt;"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword keyword-else">else</span> <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>acceptHeader<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"text/plain"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ctx<span class="token punctuation">.</span><span class="token function">contentType</span><span class="token punctuation">(</span><span class="token string">"text/plain"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ctx<span class="token punctuation">.</span><span class="token function">result</span><span class="token punctuation">(</span><span class="token string">"Hello, world!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword keyword-else">else</span> <span class="token punctuation">{</span>
+            <span class="token comment">// io.javalin.http.NotAcceptableResponse;</span>
+            <span class="token keyword keyword-throw">throw</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">NotAcceptableResponse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>COOKIE</p>
+<pre data-role="codeBlock" data-info="Java" class="language-java Java"><code>app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/content/{contentId}"</span><span class="token punctuation">,</span>
+    ctx <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment">// get cookie "cookie"</span>
+        <span class="token class-name">String</span> cookie <span class="token operator">=</span> ctx<span class="token punctuation">.</span><span class="token function">cookie</span><span class="token punctuation">(</span><span class="token string">"cookie"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>cookie <span class="token operator">==</span> <span class="token keyword keyword-null">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// set cookie = "new-cookie"</span>
+            ctx<span class="token punctuation">.</span><span class="token function">cookie</span><span class="token punctuation">(</span><span class="token string">"cookie"</span><span class="token punctuation">,</span> <span class="token string">"new-cookie"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ctx<span class="token punctuation">.</span><span class="token function">result</span><span class="token punctuation">(</span><span class="token string">"COOKIE !!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword keyword-else">else</span> <span class="token punctuation">{</span>
+            ctx<span class="token punctuation">.</span><span class="token function">result</span><span class="token punctuation">(</span><span class="token string">"COOKIE value : '"</span> <span class="token operator">+</span> cookie <span class="token operator">+</span> <span class="token string">"'!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>Body Validator (use to manage missing data in the body)</p>
+<pre data-role="codeBlock" data-info="Java" class="language-java Java"><code>app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/sing-in/"</span><span class="token punctuation">,</span>
+    ctx <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+
+        <span class="token class-name">Interger</span> id <span class="token operator">=</span> ctx<span class="token punctuation">.</span><span class="token function">pathParamAsClass</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token keyword keyword-class">class</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">User</span> newUser <span class="token operator">=</span> ctx<span class="token punctuation">.</span><span class="token function">bodyValidator</span><span class="token punctuation">(</span><span class="token class-name">User</span><span class="token punctuation">.</span><span class="token keyword keyword-class">class</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">check</span><span class="token punctuation">(</span>obj <span class="token operator">-&gt;</span> obj<span class="token punctuation">.</span><span class="token function">email</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword keyword-null">null</span><span class="token punctuation">,</span> <span class="token string">"Missing email"</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        users<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>newUser<span class="token punctuation">.</span><span class="token function">id</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> newUser<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ctx<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token class-name">HttpStatus</span><span class="token punctuation">.</span><span class="token constant">CREATED</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ctx<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span>newUser<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h3 id="http">HTTP </h3>
+<ul>
+<li>HTTP/0.9 (1989) | very simple, only use to transfer HTML</li>
+<li>HTTP/1.0 (1996) | HTTP headers, statue codes, methods and other doc (images, video, etc.)</li>
+<li>HTTP/1.1 (1997) | Persistent connections, additional cache control, content negotation (client ask for specific version of a ressource), header can be use to host multiple websites (same server)</li>
+<li>HTTP/2 (2015) | Binary -&gt; text protocol</li>
+<li>HTTP/3 (2022) | Base on QUIC(UDP) instead of TCP</li>
+</ul>
+<p><img src="image-2.png" alt="alt text"></p>
+<p><code>/users/{user-id}/view</code> | path parameter<br>
+<code>gaps.heig-vd.ch</code> -&gt; <code>gaps</code> = subdomain | <code>heig-vd</code> = domain | <code>ch</code> = top-level domain</p>
+<h3 id="url-encoding">URL encoding </h3>
+<p><code>Super test</code> -&gt; <code>Super%20test</code></p>
+<table>
+<thead>
+<tr>
+<th>Character</th>
+<th>Encoding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Space</td>
+<td><code>%20</code></td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td><code>%21</code></td>
+</tr>
+<tr>
+<td><code>"</code></td>
+<td><code>%22</code></td>
+</tr>
+<tr>
+<td><code>#</code></td>
+<td><code>%23</code></td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td><code>%24</code></td>
+</tr>
+<tr>
+<td><code>%</code></td>
+<td><code>%25</code></td>
+</tr>
+<tr>
+<td><code>&amp;</code></td>
+<td><code>%26</code></td>
+</tr>
+<tr>
+<td><code>'</code></td>
+<td><code>%27</code></td>
+</tr>
+<tr>
+<td><code>(</code></td>
+<td><code>%28</code></td>
+</tr>
+<tr>
+<td><code>)</code></td>
+<td><code>%29</code></td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td><code>%2A</code></td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td><code>%2B</code></td>
+</tr>
+<tr>
+<td><code>,</code></td>
+<td><code>%2C</code></td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td><code>%2F</code></td>
+</tr>
+<tr>
+<td><code>:</code></td>
+<td><code>%3A</code></td>
+</tr>
+<tr>
+<td><code>;</code></td>
+<td><code>%3B</code></td>
+</tr>
+<tr>
+<td><code>=</code></td>
+<td><code>%3D</code></td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td><code>%3F</code></td>
+</tr>
+<tr>
+<td><code>@</code></td>
+<td><code>%40</code></td>
+</tr>
+<tr>
+<td><code>[</code></td>
+<td><code>%5B</code></td>
+</tr>
+<tr>
+<td><code>]</code></td>
+<td><code>%5D</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="http-request-methods">HTTP request methods </h3>
+<ul>
+<li><strong>GET</strong> - Get a resource (default method - a browser always requests a resource using the HTTP method GET by default).</li>
+<li><strong>POST</strong> - Create a new resource.</li>
+<li><strong>PATCH</strong> - Partially update a resource (like if we want to change a modify a ressource, <strong>PUT</strong> will replace it)</li>
+<li><strong>PUT</strong> - Update a resource if it exists or create it if it does not exist (this is an idempotent method - it means that making multiple identical requests has the same effect as making a single request).</li>
+<li><strong>DELETE</strong> - Delete a resource.</li>
+</ul>
+<h3 id="http-request-format">HTTP request format </h3>
+<h4 id="request">Request </h4>
+<ul>
+<li>The HTTP method.</li>
+<li>The URL of the resource.</li>
+<li>The supported HTTP version.</li>
+<li>Some HTTP headers.</li>
+<li>The HTTP body (optional).</li>
+<li>The query parameters (optional).</li>
+<li>The cookies (optional).</li>
+<li>The content type (optional).</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>&lt;HTTP method&gt; &lt;URL&gt; HTTP/&lt;HTTP version&gt;
+&lt;HTTP headers&gt;
+&lt;Empty line&gt;
+&lt;HTTP body (optional)&gt;
+</code></pre><pre data-role="codeBlock" data-info="" class="language-text"><code>GET / HTTP/1
+Host: gaps.heig-vd.ch
+User-Agent: curl/8.1.2
+Accept: */*
+</code></pre><p><strong>Host</strong> - The host of the server (<a href="http://gaps.heig-vd.ch">gaps.heig-vd.ch</a> in this case).<br>
+<strong>User-Agent</strong> - The user agent that sent the request (curl in this case).<br>
+<strong>Accept</strong> - The content types accepted by the user agent (any type in this case).</p>
+<h4 id="respond">Respond </h4>
+<ul>
+<li>The HTTP version.</li>
+<li>The HTTP status code.</li>
+<li>The HTTP headers.</li>
+<li>The HTTP body (optional).</li>
+<li>The cookies (optional).</li>
+<li>The content type (optional).</li>
+<li>The content length (in HTTP/1.1).</li>
+<li>The content encoding (optional).</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>HTTP/&lt;HTTP version&gt; &lt;HTTP status code&gt; &lt;HTTP status message&gt;
+&lt;HTTP headers&gt;
+&lt;Empty line&gt;
+&lt;HTTP body&gt;
+</code></pre><ul>
+<li><strong>Content-Length</strong> - The length of the content in bytes (6111 bytes in this case).</li>
+<li><strong>Content-Type</strong> - The content type of the resource (text/html in this case).</li>
+</ul>
+<h3 id="http-response-statue-code">HTTP Response statue code </h3>
+<ul>
+<li>
+<p><strong><code>1xx</code> - Informational responses</strong></p>
+<ul>
+<li><code>101</code> - Switching Protocols (the server switches to a different protocol).</li>
+<li><code>102</code> - Processing (the server is processing the request).</li>
+</ul>
+</li>
+<li>
+<p><strong><code>2xx</code> - Successful responses</strong></p>
+<ul>
+<li><code>200</code> - <strong>OK</strong> (the request was successful).</li>
+<li><code>201</code> - <strong>Created</strong> (new resource was created).</li>
+<li><code>202</code> - <strong>Accepted</strong> (the request was accepted but not yet processed).</li>
+<li><code>204</code> - <strong>No Content</strong> (the request was successful but the server does not send any content).</li>
+</ul>
+</li>
+<li>
+<p><strong><code>3xx</code> - Redirection messages</strong></p>
+<ul>
+<li><code>301</code> - <strong>Moved Permanently</strong> (the resource has been moved permanently to a new URL).</li>
+<li><code>302</code> - <strong>Found</strong> (the resource has been moved temporarily to a new URL).</li>
+<li><code>304</code> - <strong>Not Modified</strong> (the resource has not been modified since the last request).</li>
+</ul>
+</li>
+<li>
+<p><strong><code>4xx</code> - Client error responses</strong></p>
+<ul>
+<li><code>400</code> - <strong>Bad Request</strong> (the request is malformed).</li>
+<li><code>401</code> - <strong>Unauthorized</strong> (the request requires authentication).</li>
+<li><code>403</code> - <strong>Forbidden</strong> (the request is forbidden).</li>
+<li><code>404</code> - <strong>Not Found</strong> (the resource does not exist).</li>
+<li><code>405</code> - <strong>Method Not Allowed</strong> (the HTTP method is not allowed for this resource).</li>
+<li><code>409</code> - <strong>Conflict</strong> (the request could not be processed because of a conflict).</li>
+<li><code>410</code> - <strong>Gone</strong> (the resource is no longer available and has been removed).</li>
+<li><code>429</code> - <strong>Too Many Requests</strong> (the client has sent too many requests in a given amount of time).</li>
+</ul>
+</li>
+<li>
+<p><strong><code>5xx</code> - Server error responses</strong></p>
+<ul>
+<li><code>500</code> - <strong>Internal Server Error</strong> (the server encountered an unexpected condition that prevented it from fulfilling the request).</li>
+<li><code>501</code> - <strong>Not Implemented</strong> (the server does not support the functionality required to fulfill the request)</li>
+<li><code>502</code> - <strong>Bad Gateway</strong> (the server received an invalid response from an upstream server).</li>
+<li><code>503</code> - <strong>Service Unavailable</strong> (the server is currently unable to handle the request due to a temporary overload or scheduled maintenance).</li>
+<li><code>504</code> - <strong>Gateway Timeout</strong> (the server did not receive a timely response from an upstream server).<br>
+The default status code is <code>200</code> (OK). This means that you can omit the status code.</li>
+</ul>
+</li>
+</ul>
+<h3 id="http-headers">HTTP headers </h3>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>EX</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Accept</code></td>
+<td><code>text/html</code></td>
+<td>The media types accepted by the client</td>
+</tr>
+<tr>
+<td><code>Content-Type</code></td>
+<td><code>text/html</code></td>
+<td>The media type of the body sent by the client or from the server</td>
+</tr>
+<tr>
+<td><code>Content-Length</code></td>
+<td>The length of the body sent by the client or the server</td>
+<td></td>
+</tr>
+<tr>
+<td><code>User-Agent</code></td>
+<td>The user agent of the client (the browser name and version, the curl version, etc.)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Host</code></td>
+<td>The host of the server</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Set-Cookie</code></td>
+<td>The cookies set by the server</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>HTTP does not transfer objects, it transfers representations of objects. This means that the server can send the same resource in different representations.<br>
+The same resource, i.e. the URL /my-resource, can be sent in different representations:</p>
+<ul>
+<li>Format: HTML, JSON, YAML, PNG, JPEG, etc.</li>
+<li>Language: English, French, German, etc.</li>
+<li>Encoding: UTF-8, UTF-16, etc.</li>
+</ul>
+<h3 id="http-session">HTTP session </h3>
+<p>As HTTP is based on the request-response model --&gt; This means that the server cannot know/identify who is the author</p>
+<p>HTTP session is the use of tokens to identify with :</p>
+<ul>
+<li>Using a query parameter.</li>
+<li>Using a cookie.</li>
+</ul>
+<h3 id="api-design">API design </h3>
+<p>Format : JSON<br>
+<strong>CRUD</strong> = Create - Read - Update - Delete</p>
+<h4 id="rest-apis-representational-state-transfer">REST APIs (Representational State Transfer) </h4>
+<ul>
+<li>Client/server architecture</li>
+<li>Stateless: the server does not retain any session information.</li>
+<li>Cache-ability: a REST API should support caching of responses by the client and control which responses can be cached and which not.</li>
+<li>Layered system: it should be able to add intermediate systems (cache, load balancer, security gateway) without any impact for the client</li>
+<li>Uniform interface:
+<ul>
+<li>Use URIs/URLs to identify resources.</li>
+<li>Server responses use a standard format that includes all information required by the client to process the data (modify or delete the resource's state).</li>
+<li>Server responses include links that allow the client to discover how to interact with a resource.</li>
+</ul>
+</li>
+<li>Code on demand (optional): responses may include executable code to customize functionality of the client.</li>
+</ul>
+<p>All REST APIs are APIs but not all APIs are REST APIs.</p>
+<h4 id="api-description">API description </h4>
+<pre data-role="codeBlock" data-info="" class="language-text"><code># Title
+{Des}
+## Endpoints
+### {request name}
+- {url} | ex : `POST /users`
+{desc}
+##### Request
+{desc}
+- {params}
+...
+##### Respond
+{desc}
+- {params}
+...
+#### Status codes
+- `201` (Created) - ...
+- `400` (Bad Request) - ...
+- `409` (Conflict) - ...
+</code></pre><h2 id="web-infra">Web Infra </h2>
+<h3 id="host-header">Host Header </h3>
+<p>header use in <strong>HTTP</strong> fto specifies the domain name of the server (send by client) =&gt; making multiple domains in the same IP possible (with reverse proxy helps)<br>
+The reverse proxy recieve the client request and send it to the right web server<br>
+<img src="image-3.png" alt="alt text"></p>
+<h3 id="proxy">Proxy </h3>
+<p>Proxy = composent d'une infra qui est intermediaire au requets de resources</p>
+<h4 id="forward--client---server--extern---interne">Forward | Client <strong>--&gt;</strong> Server | Extern <strong>--&gt;</strong> Interne </h4>
+<p>En gros, c'est composant infra qui vas redistribuer les request d'une group de client ver <strong>n'import quel</strong> servers<br>
+Configured to handle request from a group of clients to any other server.<br>
+Often used to corporate environments (security)<br>
+<img src="image-5.png" alt="alt text"></p>
+<h4 id="reverse--client---server--extern---interne">Reverse | Client &lt;-- Server | Extern <strong>&lt;--</strong> Interne </h4>
+<p>En gros, c'est composant infra qui vas redistribuer les request de <strong>n'import quel</strong> client ver un group de server<br>
+Utilser en web infra pour géré plusieur server</p>
+<h5 id="can-be-use">Can be use </h5>
+<ul>
+<li>Load balance: receive all traffic and distribute the requests on a cluster of several identical Web server instances.</li>
+<li>Cache: can keep in cache responses from servers for a certain amount of time - if the same request is received again, the reverse proxy can return the cached response instead of forwarding the request to the server.</li>
+<li>Encrypt and decrypt traffic: manages secure HTTPS connections with clients and unsecure HTTP connections with servers.</li>
+<li>Protect servers from attacks (e.g. DDoS, SQL injection, etc.): By filtering requests, reverse proxy can protect servers from attacks.</li>
+<li>Serve static content (e.g. images, videos, etc.): can serve static content from a cache.</li>
+<li>Serve multiple domains on the same IP address: can use the Host header to forward requests to the correct server.</li>
+</ul>
+<p><strong>Traefik</strong> is an open-source Edge Router that makes exposing/publishing your services on the Internet a fun and easy experience.</p>
+<h3 id="load-balancing">Load balancing </h3>
+<p>Distribution of a set of tasks over a set of ressources (computing units)<br>
+With Reverse proxy and Host header =&gt; load balancer can be used</p>
+<p>A load balancer can distribute requests between multiple servers using different strategies:</p>
+<ul>
+<li>Round-robin: the load balancer forwards requests to each server in the pool in turn.</li>
+<li>Sticky sessions: the load balancer forwards requests from the same client to the same server with the help of a cookie.</li>
+<li>Least connections: the load balancer forwards requests to the server with the least number of active connections.</li>
+<li>Least response time: the load balancer forwards requests to the server with the least response time.</li>
+<li>Hashing: the load balancer forwards requests to the server based on a hash of the request (e.g. the IP address of the client, the URL of the request, etc.).</li>
+</ul>
+<h2 id="caching-data--performance">Caching data &amp; Performance </h2>
+<h3 id="type-of-caching">Type of caching </h3>
+<ul>
+<li>Client side (private)</li>
+<li>Server side (shared)</li>
+</ul>
+<h3 id="cdn-content-delivery-networks">CDN (Content Delivery Networks) </h3>
+<p>C'est un type de chache que le server peu utiliser pour le contenue static (image, video, etc.)</p>
+<p>En gros, c'est un réseau de proxy server qui permette de server les request avec le contenue static recurrent.</p>
+<ul>
+<li>CDN is a geographically distributed network of proxy servers and their data centers.</li>
+<li>CDN can be used to improve the performance of a system by serving static content to clients from the closest server for clients all around the world.</li>
+</ul>
+<h3 id="where-to-cache-">Where to cache ? </h3>
+<p>Client side, server side ou CDN<br>
+Le mieux c'est de cache partous (lmao) mais c'est souvant impossible (no way). Mais nous on aime que le server-side<br>
+<img src="image.png" alt="alt text"></p>
+<h3 id="managin-cache-with-http-server-side">Managin cache with HTTP (server side) </h3>
+<h4 id="caching-model-on-peut-utiliser-le-2-en-meme-temps">Caching model (on peut utiliser le 2 en meme temps) </h4>
+<p>RFC 2616</p>
+<h5 id="expiration-model">Expiration model </h5>
+<p>The cache is valid for a certain amount of time.<br>
+On peut l'implementer avec le header <code>Cache-Control: max-age=&lt;number of seconds&gt;</code></p>
+<h5 id="validation-model">Validation model </h5>
+<p>The cache is valid until the data is modified.</p>
+<h6 id="main-idea">Main idea </h6>
+<ol>
+<li>Send a request to the server to check if the data has changed.</li>
+<li>If the data has not changed, the server can return a <code>304 Not Modified</code> response to the client. The client can then use the cached data.</li>
+<li>If the data has changed, the server can return a <code>200 OK</code> response to the client with the new data.</li>
+</ol>
+<p>La request s'appel une <code>conditional request (CR)</code><br>
+Si un client veu update une ressource il doit envoyer un CR<br>
+Reponce pour le <strong>POST</strong> :<br>
+<code>200</code> = OK = Cache HIT<br>
+<code>412</code> = Precondition Failed = data all ready modify = Cache MISS</p>
+<h6 id="2-type-de-conditional-request-cr">2 type de conditional request (CR) </h6>
+<ul>
+<li>Based on the Last-Modified header: 304 si la donner à pas été changer depuis la dérnière fois</li>
+<li>Based on the ETag header: 304 si la hash/version de la donner à pas changer</li>
+</ul>
+<h6 id="header-last-modified-http">Header <code>Last-Modified</code> (HTTP) </h6>
+<p><code>Last-Modified</code>: indicates the date and time at which the resource was last updated.</p>
+<h6 id="header-etag-http">Header <code>Etag</code> (HTTP) </h6>
+<p><code>ETag</code> : provides the current entity tag for the selected representation. Think of it like a version number or a hash for the given resource.</p>
+<h3 id="managin-cache-with-proxie">Managin cache with proxie </h3>
+<p>Forward / Reverse proxy peuvent mange le cache<br>
+<code>Treafik</code> est http reverse proxy qui peut gerer le cache</p>
+<h3 id="managin-cache-with-key-value-stores">Managin cache with key-value stores </h3>
+<p>A key-value store is a type of database that stores data as a collection of key value pairs.<br>
+Ex : <code>Redis</code> or <code>Valkey</code></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
