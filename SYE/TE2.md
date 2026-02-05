@@ -337,5 +337,3 @@ Algo :
   - 0 => 
     - Si la page à une durée de vie (temps actuel - TDU) =< $\delta$ => go next :]
     - Sinon => mort >:[
-
-## C13 ?

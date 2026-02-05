@@ -18,6 +18,7 @@ don't ask
 - SYE
   - [T1](./SYE/TE1.md)
   - [T2](./SYE/TE2.md)
+  - [Exams](./SYE/Exams.md)
 - DAI
   - [T1](./DAI/TE1.md)
   - [T2](./DAI/TE2.md)
