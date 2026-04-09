@@ -5,13 +5,13 @@ My lazy ass can't do shit in time, time to use the most broken technic known in 
 don't ask
 
 ### BA 2
-- ASD 
+- ASD
   - [Exams Cheat sheet](./ASD/README.md)
-- RXI 
+- RXI
   - [Exams Cheat sheet](./RXI/Exam-CheatSheet.pdf)
-- ISI 
+- ISI
   - [Exams Cheat sheet](./ISI/Exam-CheatSheet.pdf)
-- ARO 
+- ARO
   - [Exams Cheat sheet](./ARO/Exam-Cheatsheet.pdf)
 
 ### BA 3
@@ -30,7 +30,8 @@ don't ask
 - BDR
   - [EXAMS](./BDR/Cours.md)
 ### BA 4
-
+- GRE
+  - [T1](./GRE/TE1.md) | [CHEAT SHEET](./GRE/TE1.pdf)
 ### BA 5
 
 ### BA 6
