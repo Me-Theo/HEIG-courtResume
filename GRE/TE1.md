@@ -99,5 +99,205 @@ SSC {
 
 
 ### Chap 4 (Arbres et arborescences)
+#### Def
+- Arbre = Graph conext et sans cycles
+- Arbre recouvrant = Graph partielle de G qui est un arbre G
+- coupe = ensemble d'arret ayant une extremiter dans $A$ et l'autre dans $\bar{A}$
+
+#### Union-Find
+type de structure qui permette de faire les operation suivante :
+- MakeSet(u) [O(n)] : crée un sous-ensemble qui corespond a la condition u
+- Find(u) [O(n)] : trouve un sous-ensemble contenant u
+- Unsion(u,v) [O(n)] : fusionne u et v
+
+#### Kurskal découverte d'arbre
+Complexité : O(mn) {O(m log(n) : trie, O(mn) : parcourt/check)}
+
+Algo :
+```C
+// not real c, just c like
+int[] kruskal(int[] arr){
+  int[] fo;
+  // trie arrete croissant
+  arr.sort();
+
+  for(int e : arr){
+    // si e ne crée pas de cycle
+    // avec fo -> ajouter a la foret
+    if(e not cycle in fo){
+      fo.push(e);
+    }
+  }
+  return fo;
+}
+```
+![alt text](image-13.png)
+
+#### Prim
+
+Algo :
+```C
+// not real c, just c like
+int[] Prim(int[] sum){
+  int[] fo;
+
+  // marke du sommet
+  int[] prio = int[sum.lenght];
+
+  // plus proche du somette
+  int[] proche = new int[sum.lenght];
+
+  // init
+  for(uint i = 0; i < sum.lenght; i++){
+    prio[i]=INFINT;
+    proche[i]=-1; // NULL
+  }
+
+  // list des sommettes
+  // qui ne sont pas encore
+  // dans fo
+  int[] buffer = sum;
+
+  // choisire un sommet de base
+  int s = sum[0];
+
+  while(!buffer.empty()){
+    int u = buffer.get(
+      sommet avec la plus petit mark[u];
+    );
+
+    if(u!=s)fo.push(proche[u],u);
+
+    for (uint i : getNeightbore(u)){
+      if(buffer.include(i) && prio[i] > poid(u,i)){
+        prio[i] = poid(u,i);
+        proche[i] = u;
+      }
+    }
+
+  }
+}
+```
+
+![alt text](image-14.png)
+
+
+##### Abrorescneces et racines
+![alt text](image-15.png)
+
+- Aborescnces recouvrantes = arbres recouvrant qui aussi une arborescences
+
+
+##### Contraction de circuits (Chu-Liu)
+![alt text](image-16.png)
+![alt text](image-17.png)
+![alt text](image-18.png)
 
 ### Chap 5 (Plus court hemins dans les reseaux)
+
+##### Bellman
+En gros c'est l'idée que le plus court chemin entre a et c est composer des plus court chemin de c'est composant (genre a-b-c, si a-b est le plus court et b-c est le plus court, alors a-b-c est le plus court pout a-c)
+
+équoation : $\Delta_j \geq \Delta_i + c_{ij}$
+
+avec :
+- $\Delta_j$ : distande entre s et j
+###### Bellman-ford
+Algo :
+```C
+// not real c, just c like
+
+struct Graph{v : vertex, a : arc};
+struct Arc{a : v1, b : v2, l : lenght};
+
+// g = gaph, s = origne de l'arbre
+Graph BellmanFord(Graph g, int s){
+  // distance du sommet
+  int[] dist = int[g.v.lenght];
+
+  // plus proche du somette
+  int[] proche = new int[g.v.lenght];
+
+  // init
+  for(uint i = 0; i < dist.lenght; i++){
+    dist[i] = INFINT;
+    proche[i] = -1;  // NULL
+  }
+
+  // distance from orine
+  int d = 0;
+
+  bool ok = true;
+
+  distance[s] = 0;
+
+  while(k < g.v.lenght && ok){
+    ok = false;
+    k++;
+
+    // go over all arc (GAA)
+    for(Arc arc : g.a){
+      if(dist[arc.b] > dist[arc.a] + arc.l){
+        dist[arc.b] = dist[arc.a] + arc.l;
+        ok = true;
+      }
+    }
+  }
+  if( !ok )return {dist,proche};
+
+  return reseau avec un circuit a coup negatife :[;
+}
+```
+![alt text](image-19.png)
+##### Dijkstra
+NE PEUT ÊTRE UTILISER QUE SUR DES CIRCUIT A COUP NON NÉGATIVE
+
+Alog :
+```C
+// not real c, just c like
+
+struct Graph{v : vertex, a : arc};
+struct Arc{a : v1, b : v2, l : lenght};
+
+// g = gaph, s = origne de l'arbre
+Graph BellmanFord(Graph g, int s){
+  // distance du sommet
+  int[] dist = int[g.v.lenght];
+
+  // plus proche du somette
+  int[] proche = new int[g.v.lenght];
+
+  // init
+  for(uint i = 0; i < dist.lenght; i++){
+    dist[i] = INFINT;
+    proche[i] = -1;  // NULL
+  }
+
+  // distance from orine
+  int d = 0;
+
+  bool ok = true;
+
+  distance[s] = 0;
+
+  while(k < g.v.lenght && ok){
+    ok = false;
+    k++;
+
+    // go over all arc (GAA)
+    for(Arc arc : g.a){
+      if(dist[arc.b] > dist[arc.a] + arc.l){
+        dist[arc.b] = dist[arc.a] + arc.l;
+        ok = true;
+      }
+    }
+  }
+  if( !ok )return {dist,proche};
+
+  return reseau avec un circuit a coup negatife :[;
+}
+```
+
+##### Floyd-Warshall
+
+##### Johnson
