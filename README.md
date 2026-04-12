@@ -32,6 +32,8 @@ don't ask
 ### BA 4
 - GRE
   - [T1](./GRE/TE1.md) | [CHEAT SHEET](./GRE/TE1.pdf)
+- CLD
+  - [T1](./CLD/TE1.md) | [CHEAT SHEET](./CLD/TE1.pdf)
 ### BA 5
 
 ### BA 6

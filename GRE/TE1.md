@@ -38,6 +38,9 @@ En gros, c'est 2 tableu :
 - **TIPS** (Tableau des Indices des Premiers Successeurs) vas permettre de stocker l'index de départ de la plage utiliser dans le **TabSucc** par le somette
 - **TabSucc** est utiliser pour stocker les succeseur au somette. ça stocke des somette et leur place dans le tableu indique d'où il vienne
 
+
+*PS : dans le cas d'un graph non orientier, stocker qu'un fois les arretes*
+
 ![alt text](image-8.png)
 
 ### Chap 3 (Connexité et exploration des graphe)
@@ -96,7 +99,6 @@ SSC {
   - get **w** de **P** tant que **w** != **u**
     - attribuer **w** au composante trouver
 }
-
 
 ### Chap 4 (Arbres et arborescences)
 #### Def
@@ -211,7 +213,7 @@ struct Graph{v : vertex, a : arc};
 struct Arc{a : v1, b : v2, l : lenght};
 
 // g = gaph, s = origne de l'arbre
-Graph BellmanFord(Graph g, int s){
+pair BellmanFord(Graph g, int s){
   // distance du sommet
   int[] dist = int[g.v.lenght];
 
@@ -260,7 +262,7 @@ struct Graph{v : vertex, a : arc};
 struct Arc{a : v1, b : v2, l : lenght};
 
 // g = gaph, s = origne de l'arbre
-Graph BellmanFord(Graph g, int s){
+pair Dijkstra(Graph g, int s){
   // distance du sommet
   int[] dist = int[g.v.lenght];
 
@@ -269,35 +271,81 @@ Graph BellmanFord(Graph g, int s){
 
   // init
   for(uint i = 0; i < dist.lenght; i++){
-    dist[i] = INFINT;
+    dist[i] = INFINIT;
     proche[i] = -1;  // NULL
   }
 
-  // distance from orine
-  int d = 0;
+  dist[s] = 0;
 
-  bool ok = true;
+  // list des sommettes
+  // qui ne sont pas traiter
+  int[] buffer = sum;
 
-  distance[s] = 0;
+  while(!buffer.empty()){
+    int u = buffer.get(
+      sommet avec la plus petit dist[u];
+    );
 
-  while(k < g.v.lenght && ok){
-    ok = false;
-    k++;
+    // cella voudrais dire que
+    // que u n'est pas accible
+    // et que dont tous les autre
+    // sommet restant ne le sont pas
+    // non plus
+    if(dist[u] == INFINIT) break;
 
-    // go over all arc (GAA)
-    for(Arc arc : g.a){
-      if(dist[arc.b] > dist[arc.a] + arc.l){
-        dist[arc.b] = dist[arc.a] + arc.l;
-        ok = true;
+    for (int j : g.getNeightbore(u)){
+      if(buffer.include(j) && dist[j] > dist[i] + g.get_arc(i,j).l){
+        dist[j] = dist[i] + g.get_arc(i,j).l;
       }
     }
   }
-  if( !ok )return {dist,proche};
-
-  return reseau avec un circuit a coup negatife :[;
+  return {dist,proche};
 }
 ```
 
 ##### Floyd-Warshall
+on vas crée une matrice de distance entre chaque sommets ainsi qu'une matrice de prédécéseur pour trouver les chemins le plus court facilement
 
+```C
+// not real c, just c like
+
+struct Graph{v : vertex, a : arc};
+struct Arc{a : v1, b : v2, l : lenght};
+
+// g = gaph, s = origne de l'arbre
+int[][] FloydWarshall(Graph g, int s){
+  int[][] dist = int[g.s.lenght][g.s.lenght];
+  int[][] poches = int[g.s.lenght][g.s.lenght];
+
+  // init matrice de distance et proches
+  for(uint i = 0; i < g.s.lenght; i++){
+    for(uint j = 0; j < g.s.lenght; j++){
+      dist[i][j] = g.get_arc(i,j).l;
+      proches[i][j] = (i == j || mat[i][j] == INFINIT)? NULL : i;
+    }
+  }
+
+  for(uint k = 0; k <  g.s.lenght; k++){
+    for(uint i = 0; i < g.s.lenght; i++){
+      for(uint j = 0; j < g.s.lenght; j++){
+        if(dist[i][j] > dist[i][k] + dist[k][j]){
+          dist[i][j] = dist[i][k] + dist[k][j];
+          proches[i][j] = proches[k][j];
+        }
+      }
+      // graphe continuer cercuit negatife
+      // passant par i
+      if(dist[i][i] < 0)return;
+    }
+  }
+
+  return {dist,proches};
+
+}
+```
+![alt text](image-20.png)
+![alt text](image-21.png)
+![alt text](image-22.png)
+![alt text](image-23.png)
+![alt text](image-24.png)
 ##### Johnson
