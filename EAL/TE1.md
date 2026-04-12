@@ -91,12 +91,60 @@ en gros, ça evite juste que tu te pointe quelque part, tu check se qu'il font e
 Start d'IP sans brevet
 En gros, tu publie la methods avant tous le monde et le sort en libre accet pour que personne puisse le breveter
 
-
-
----------------------
-
 ## C5
 
+#### Droit d'autheur
+automatique mais au US faut l'enregistrer au US Federal
+Copyright Office
+
+ça protège en gros le code dans son ensemble en mode c'est une oeuvre
+
+
+#### Brevet
+Un software peu pas être brevter parceque c'est proche d'une methode logic et donc d'une methodes mathématique
+
+MAIS
+
+tu peux le breveter le "toute" si on veux, faut just démontré l'effet technique. Example : Comprimer des vidéos qui vas audela de just utiliser l'electriciter
+
+En gros, faut just que ça sois pas un truc général, genre pas un algo quoi
+
+Btw, appliquer une logic dans une version (par example dans un circuit) ça compte par ce que ça sort la théorie (je croie)
+
+#### Licence
+Creative Commons != Open source
+Aacadémique = droit de reditribuer mais pas de modifier
+GLP (GNU) = droit de tous tant que le qui est crée avec est sous la meme licence
+
 ## C6
+Solution basé sur l'IA c'est brevetabe à condition qu'elle contribue a un effet technique particulier
+
+BTW, les mothodes d'entranment sont brevetable parceque argent pareille pour les methods d'acquisition de donnée d'entrainment
+
+Pour les donné, en gros ça dépend mais en général
+- si recherche -> tous les droit
+- si compercial -> alors sous au droit d'auteur, faut demander
+
+
+Pour un logiciel, tu le copyright automatiquement si il fait 8-25 k ligne de code (parceque feure)
+
+Pour la production avec l'ia ça dépend mais en gros, si c'est toi qui fait la partie créeative ça peu passé même si t'es une merde
+
+Pour ce protégé de l'ai, bah espère que les gens respect et dit clairement que tu interdit
 
 ## C7
+
+Tu peux brevter un truc qui combine d'autre anterieur tanque que ça apport un solution a problème X
+
+
+##### FTO (Freedom To Operate)
+En gros, si ta le brevet, ça veux pas dire que t'as le droit de l'exploiter parceque suivant comment un brevet peut empieter sur tes droit et la seum
+
+Du coup faut annalyser est gamble
+
+Si tu te fait baiser parcequelle qu'un est plus rappide dans un pay X
+3 option :
+- tenter de l'annuler
+- demander un licence au gas plus rappide
+- arriver a contourner le truc avec un redesigne
+- Rien a foutre, comercialise quand meme
