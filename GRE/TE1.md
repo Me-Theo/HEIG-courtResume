@@ -3,6 +3,30 @@
 *S* = somette
 *A* = arrette
 
+```C
+// not real c, just c like / PSODO LIB
+T[] = std::vector<T>
+INFINIT = Math::Infinit
+
+void method = ()=>{...} /*js like const methods = ()=>{...}*/
+// keep context
+
+
+struct Graph{
+    vertex = int[];
+    arcs : Arc[];
+
+    int get_neightbore(int i); // get vertext neightbore
+    Arc get_arc(int i, int j); // get arc i -> j
+};
+
+struct Arc{
+  a = int;  // vertex a
+  b = int;  // vertex b
+  weight = int   // weight
+};
+```
+
 ### Chap 1 (Base)
 
 #### Type de graph
@@ -16,7 +40,7 @@
 
 ### Chap 2 (Représentation des graphe)
 ##### Matrice d'adjacence
-Matrice qui donne si a et b on un arrette
+Matrice qui donne si a et b on une arrette
 ![alt text](image-1.png)
 ![alt text](image-2.png)
 ![alt text](image-3.png)
@@ -88,6 +112,65 @@ En gros, on fonctionne avec 2 lists :
 - **low** (**low[n]**) sert a stocker le *S* le plus petit atteignable par le *S* [n]
 
 Algo :
+```C
+int[][][] Tarjan(Graph g){
+
+  // smalest vertex of the ssc
+  int[] low=int[g.vertex.lenght];
+
+  // computation order
+  int[] dfsnum=int[g.vertex.lenght];
+
+  // id composante fortement conext
+  int[] ssc=int[g.vertex.lenght];
+
+  // buffer use to track ssc
+  int[] buffer = int[];
+
+  int N = 0;
+
+  // use to get ssc
+  int K = 0;
+
+
+  // init
+  for(int i = 0; i<g.vertex.lenght; i++){
+    low[i]=-1;
+    dfsnum[i]=-1;
+    ssc[i]=0;
+  }
+
+  for(int v : g.vertex){
+    SSC(v)
+  }
+
+  void SSC = (int v)=>{
+    N++;
+    dfsnum[v]=N;
+    low[v]=N;
+
+    buffer.push(v);
+
+    for(int u : g.get_neightbore(v)){
+      // if not visited
+      if(dfsnum[u]==-1) SSC(v);
+
+      // if v is not link to a ssc
+      if(scc[u] == -1){
+        low[v] = min(low[u],low[v]);
+      }
+    }
+    if(low[v] == dfsnum[v]){
+      K++;
+      do{
+        int w=buffer.pop()
+        ssc[w] = K;
+      }while(w != v);
+    }
+  }
+
+}
+```
 SSC {
 - Ajoute le somet **u** à la pile **P**
 - pour chaqu'un de c'est enfant -> **s**
@@ -118,12 +201,12 @@ Complexité : O(mn) {O(m log(n) : trie, O(mn) : parcourt/check)}
 Algo :
 ```C
 // not real c, just c like
-int[] kruskal(int[] arr){
+int[] kruskal(Graph g){
   int[] fo;
   // trie arrete croissant
-  arr.sort();
+  g.arcs.sort(/*By weight*/);
 
-  for(int e : arr){
+  for(int e : g.arcs){
     // si e ne crée pas de cycle
     // avec fo -> ajouter a la foret
     if(e not cycle in fo){
@@ -140,28 +223,28 @@ int[] kruskal(int[] arr){
 Algo :
 ```C
 // not real c, just c like
-int[] Prim(int[] sum){
+int[] Prim(Graph g){
   int[] fo;
 
   // marke du sommet
-  int[] prio = int[sum.lenght];
-
+  int[] mark = int[g.vertex.lenght];
   // plus proche du somette
-  int[] proche = new int[sum.lenght];
+  int[] proche = int[g.vertex.lenght];
 
   // init
-  for(uint i = 0; i < sum.lenght; i++){
-    prio[i]=INFINT;
+  for(uint i = 0; i < g.vertex.lenght; i++){
+    mark[i]=INFINT;
     proche[i]=-1; // NULL
   }
 
   // list des sommettes
   // qui ne sont pas encore
   // dans fo
-  int[] buffer = sum;
+  int[] buffer = g.vertex;
 
   // choisire un sommet de base
-  int s = sum[0];
+  int s = g.vertex[0];
+  mark[s] = 0;
 
   while(!buffer.empty()){
     int u = buffer.get(
@@ -170,9 +253,9 @@ int[] Prim(int[] sum){
 
     if(u!=s)fo.push(proche[u],u);
 
-    for (uint i : getNeightbore(u)){
-      if(buffer.include(i) && prio[i] > poid(u,i)){
-        prio[i] = poid(u,i);
+    for (uint i : get_neightbore(u)){
+      if(buffer.include(i) && mark[i] > g.get_arc(u,i).wieght){
+        mark[i] = g.get_arc(u,i).wieght;
         proche[i] = u;
       }
     }
@@ -207,18 +290,13 @@ avec :
 ###### Bellman-ford
 Algo :
 ```C
-// not real c, just c like
-
-struct Graph{v : vertex, a : arc};
-struct Arc{a : v1, b : v2, l : lenght};
-
 // g = gaph, s = origne de l'arbre
 pair BellmanFord(Graph g, int s){
   // distance du sommet
-  int[] dist = int[g.v.lenght];
+  int[] dist = int[g.vertexs.lenght];
 
   // plus proche du somette
-  int[] proche = new int[g.v.lenght];
+  int[] proche = int[g.vertexs.lenght];
 
   // init
   for(uint i = 0; i < dist.lenght; i++){
@@ -233,12 +311,12 @@ pair BellmanFord(Graph g, int s){
 
   distance[s] = 0;
 
-  while(k < g.v.lenght && ok){
+  while(k < g.vertexs.lenght && ok){
     ok = false;
     k++;
 
     // go over all arc (GAA)
-    for(Arc arc : g.a){
+    for(Arc arc : g.arc){
       if(dist[arc.b] > dist[arc.a] + arc.l){
         dist[arc.b] = dist[arc.a] + arc.l;
         ok = true;
@@ -251,23 +329,21 @@ pair BellmanFord(Graph g, int s){
 }
 ```
 ![alt text](image-19.png)
+
+###### ALT : version qui gère les cirtuit absorbant
+
 ##### Dijkstra
 NE PEUT ÊTRE UTILISER QUE SUR DES CIRCUIT A COUP NON NÉGATIVE
 
 Alog :
 ```C
-// not real c, just c like
-
-struct Graph{v : vertex, a : arc};
-struct Arc{a : v1, b : v2, l : lenght};
-
 // g = gaph, s = origne de l'arbre
 pair Dijkstra(Graph g, int s){
   // distance du sommet
-  int[] dist = int[g.v.lenght];
+  int[] dist = int[g.vertexs.lenght];
 
   // plus proche du somette
-  int[] proche = new int[g.v.lenght];
+  int[] proche = new int[g.vertexs.lenght];
 
   // init
   for(uint i = 0; i < dist.lenght; i++){
@@ -293,7 +369,7 @@ pair Dijkstra(Graph g, int s){
     // non plus
     if(dist[u] == INFINIT) break;
 
-    for (int j : g.getNeightbore(u)){
+    for (int j : g.get_neightbore(u)){
       if(buffer.include(j) && dist[j] > dist[i] + g.get_arc(i,j).l){
         dist[j] = dist[i] + g.get_arc(i,j).l;
       }
@@ -307,11 +383,6 @@ pair Dijkstra(Graph g, int s){
 on vas crée une matrice de distance entre chaque sommets ainsi qu'une matrice de prédécéseur pour trouver les chemins le plus court facilement
 
 ```C
-// not real c, just c like
-
-struct Graph{v : vertex, a : arc};
-struct Arc{a : v1, b : v2, l : lenght};
-
 // g = gaph, s = origne de l'arbre
 int[][] FloydWarshall(Graph g, int s){
   int[][] dist = int[g.s.lenght][g.s.lenght];
@@ -349,3 +420,21 @@ int[][] FloydWarshall(Graph g, int s){
 ![alt text](image-23.png)
 ![alt text](image-24.png)
 ##### Johnson
+
+En gros, l'idée c'est de battre les circuite negatife avec une transformation de graph
+1. Ajouter un sommet fictif qu'on vas appler $O$
+2. crée des arc de $O \rarr AllVertex$ de poind de $0$
+3. Bellman ford sur ce nouveau graph avec $O$ comme racine $\rarr$ crée le list de distance $d[]$
+4. corriger les arc du graphe en fesant $arc_{ij} + d[i] - d[j]$ (ça vas rendre chaque arc non nàgatife)
+5. Dijektra sur le "nouveau" "nouveau" graph
+6. Corriger le resulta de Dijektra avec le point reel des arc
+
+### Funny stuff
+
+##### Transfromation de graph a cercuit negatife
+quand on a un graph a cercuit négatife et l'on veut le tranformer en circuit prositife toute en gardant les plus court chemins, une tech c'est :
+- ajouter un sommet fictife comme racine (important)
+- Belle-man ford sur le circuit $\rarr$ list de distance d[]
+- prendre chaque arc et faire $\rarr$  $arc_{ij} + d[i] - d[j]$
+
+(En fesant ça, on vas remonter tous les arc par le delta du déplacement si on veut et on vas mettre le chemin le plus court comme des arc de 0)
