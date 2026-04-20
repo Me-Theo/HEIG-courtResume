@@ -31,11 +31,13 @@ don't ask
   - [EXAMS](./BDR/Cours.md)
 ### BA 4
 - GRE
-  - [T1](./GRE/TE1.md) | (TODO)[CHEAT SHEET](./GRE/TE1.pdf)
+  - [T1](./GRE/TE1.md) | [CHEAT SHEET](./GRE/TE1.pdf)
 - CLD
   - [T1](./CLD/TE1.md) | [CHEAT SHEET](./CLD/TE1.pdf)
 - EAL
   - [T1](./EAL/TE1.md)
+- PDL
+  - [T1](./PDL/TE1.md)
 ### BA 5
 
 ### BA 6
