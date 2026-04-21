@@ -122,11 +122,68 @@ si jamais ça c'est légal
 Si l'attribute est complex, faut crée une class (en gros)
 ![alt text](image-13.png)
 
+## Chap 6 Modèles de comportement
+Modèles de comportement = Diagramme de sécance basicquement
 
------- demain flème maintenante
+#### Diagrammes de séquence
+btw, faut eviter d'utiliser des mots qui peuvent engager un certaint type d'implementation, Ex : saisire au lieux de scanner
 
-## Chap 6
+##### Notation
+aussi le nom a un ":" parceque tu peux le nomée (ce qui donnerais "nom : Class")
+###### exécution imbriquée
+![alt text](image-14.png)
+###### Créeation d'une instance
+![alt text](image-15.png)
+###### Destructon d'une instance
+![alt text](image-16.png)
+###### "Operator"
+- opt = if
+![alt text](image-17.png)
+- alt = if else
+![alt text](image-18.png)
+- loop = for(n)
+![alt text](image-19.png)
+![alt text](image-20.png)
+- par = thread/parallèle
+- region = region critique dans les thread
+- ref "name" = include "name" (utiliser pour les sous diagramme)
+###### Sous-diagrame
+![alt text](image-21.png)
+###### Methods static
+![alt text](image-22.png)
 
-## Chap 7
+## Chap 7 Diagrammes d’activité
+![alt text](image-27.png)
+###### Parralèle
+![alt text](image-23.png)
+###### Start/Stop/End
+- start
+![alt text](image-24.png)
+- Stop
+![alt text](image-25.png)
+- End
+![alt text](image-26.png)
 
-## Chap 8
+###### Signaux
+En gros, ça permette de modeliser un communication entre de spot (ex avec un client server)
+![alt text](image-28.png)
+
+###### Signaux temporel
+![alt text](image-29.png)
+## Chap 8 Diagramme de machine à états
+![alt text](image-30.png)
+##### Condition
+(le "[...]")
+![alt text](image-31.png)
+##### Etats imbriqués
+![alt text](image-32.png)
+##### Actions, actions interne, transitions sans changement d’état
+c'est la partie qui suite le "/" ou ":", ça permette de donner une action a faire en plus
+![alt text](image-33.png)
+##### Historique
+Le H revien a l'état d'où on est sortie
+H* = revien a l'état de sortie des etats imbriquées
+![alt text](image-34.png)
+
+##### Régions de concurrence
+![alt text](image-35.png)
