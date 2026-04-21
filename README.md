@@ -37,7 +37,7 @@ don't ask
 - EAL
   - [T1](./EAL/TE1.md)
 - PDL
-  - [T1](./PDL/TE1.md)
+  - [T1](./PDL/TE1.md) | [CHEAT SHEET](./PDL/TE1.pdf)
 ### BA 5
 
 ### BA 6
