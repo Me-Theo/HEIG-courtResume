@@ -53,7 +53,7 @@ Donc on peut just fair Bellman mais avec un *max* à la place du *min*
   - La tâche j ne peut commencer qu’une fois l’exécution de la tâche i terminée.
 - L’objectif est de déterminer une planification des tâches respectant toutes les contraintes et minimisant la durée totale de réalisation
 
-###### Les graphes potentiels-ÉTAPES$
+###### Les graphes potentiels-ÉTAPES
 les sommets du graphe représentent différentes étapes de réalisation du projet global et les arcs correspondent aux tâches
 
 ###### Les graphes potentiels-TÂTCHES
@@ -94,13 +94,14 @@ le but est d'avoir un equoation du flot = 0
 ##### Flot Compatible
 Un flot compatibe c'est un flot qui respect l'équoation de conservation
 
-#### Circulation
-
-
 
 #### Algorithme de Ford et Fulkerson
+***
+Pas polinomyal, du au fait que suivant les choix de recherche, on peut avoir + ou - d'iteration
+***
+
 1) prender un flot initial possible
-2) Crée R*
+2) Crée R* (réseau d’augmentation)
 3) chercher le chemin de s à t dans R*
 4) si trouver, augmenter au maximume le flot le long de ce chemin (en deminuant les flot inverse)
 5) répéter jusqu'à qu'on ai plus de chemin dans R*
@@ -139,12 +140,12 @@ en gros, on prend notre graph :
 #### Problème a flot max à coût ($) min
 en gros, on mette un coup de n par unité sur les arc, dans ce resau on cherche le flot max mais a coût min
 
-##### Algorithme de Busacker et Gowen
+##### Algorithme de Busacker et Gowen ver coût
 1) on commence avec un flot initial null
 2) Construire un  réseau d'augmentation R*
 3) Cherche un plus court chemin de s à t dans R*
    - si trouver, répéter depuis (2)
-   - mettre ajour les cout en fesant $c_ij = c_ij + (\Delta_i - \Delta_j)$
+   - (si coût) mettre ajour les cout en fesant $c_ij = c_ij + (\lambda_i - \lambda_j)$ (pour evité les cout negatife)
 4) end
 
 #### Problème d'affectation lineaire et transbordement
@@ -157,6 +158,28 @@ donc on a :
 - et des sommet de transit avec ni offre ni demande
 
 
+BTW, un pui c'est pas seulment un sommet sans succeur, mais bien a partire du moment ou un sommet consome quelque chose
+
+
+#### Éliminé un flow a capacité min
+![alt text](image-47.png)
+
+
+#### Definition d'un problème
+- donner ce que l'on cherche
+- definir les différent partie de notre modélisation
+- definir comment savoir si on a resolue le problème
+
+### Other shit
+- on a réseau R avec un *fnc* associant chaque sommet une capacité
+  - splite chaque sommette en 2 (sortant et entrant), mettre l'arc entre entrant et sortant a la capacitée *fnc*, resoudre le problème de flo
+- Graph G, trouve le nombre max de chemin de *s* à *t* disjoin par
+  - arc, on mette un capacté de 1 par arc into flow max
+  - sommet, on mette un capacité de 1 par sommet into flow max en utilisant la tech audessu
+- trouver le plus court chemin dans un graph a pondération
+  - arc de s et de t on une capacité de 1, les autre arc auront aussi un capacité de 1 et aussi le meme coup unitaire que la pondération, into flowmax
+- trouver arbre min
+  - Source s avec un capacité de |V|-1 et tous les autre sommet ont une demande 1 puis meme logic
 
 ### Chap 8 (Random problème)
 [8.1, 8.2, 8.3, 8.4, 8.5, 8.7, 8.8, -8.9, -8.10, -8.11, -8.12]
@@ -172,6 +195,9 @@ En gros, c'est un gaph où l'on gatégorise l'ensemble des Edge en 2 groups et d
 ![alt text](image-32.png)
 ###### Graph bipartie compelet
 c'est un graph bipartie dans le quel chaque Edge d'un group est relier a tous les autre Edge de l'autre group
+
+- Recouvrement = sous-ensemble d'arc tell que chaque sommet de G sois au moins un extremiter des arc
+- transversal = sous-ensemble d'arc
 
 ##### Couplage
 ![alt text](image-33.png)
@@ -200,7 +226,8 @@ en gros, il dit que si on a une chaine donnée C, on peut lui ajouter un membre 
 3) en partant du somet "source" et allant ver un "pui" on optien une chaine alternée C augmentente sur M
 4) on fait $C \Delta M$
 
-#### problème de tournois
-
-
-#####
+### Other shit
+- graph bipartie $K_{r,s}$ (r + s sommet)
+  - nArc = $r*s$ / couplage max cardinalité = $min(r,s)$
+- Si on a le couplage max d'un graph G, trouver le recouvrement → ajoute les sommet manquand pour formé l'arbre
+- Si on a arbre recouvrant min, trouver le couplage max = garder un arc pour tous sommet a plus de 1 connection

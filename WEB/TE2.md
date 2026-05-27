@@ -188,3 +188,10 @@ En gros, ça empèche d'envoyer des donner ver d'autre site que le notre
 
 ### Random
 - faut pas encrypte les mot de passe, faut les hasher (logic)
+
+
+Escape dans un template HTML c'est safe parceque le innerHTML n'est jamais executer, du coup tu peux faire template->textcontent pour choper le text en plain
+
+
+### Textcontent
+textcontent ne se feras jamais executer, donc c'est good

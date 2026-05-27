@@ -6,9 +6,9 @@ Address physique = Addre base + index*PTE-size
 ## C8 Ordonancer
 Calcule temps d'attente de process : **temps de fin d'exec - durée - temps d'arrivée**
 
-Critère de mesure : 
+Critère de mesure :
 - Taux d'utilisation du CPU
-- capacité de traitement 
+- capacité de traitement
 - **Délais d'attent** : temps que passe le precessus dans l'état READY
 
 En gros, quand y a plusieur processus dans l'état ready, l'ordonnancer doit choisire qu'il y envois sur le CPU.
@@ -19,7 +19,7 @@ l'Ordonanceur peut pas prendre la main tous le temps, il dois passer par des "Po
 
 ### Préemption
 En gros, c'est quand l'ordonanceur interompt un process qui était en **RUNNING** -> **READY**
-Durant ce moment, un autre process vas passé de **READY** -> **RUNNING** 
+Durant ce moment, un autre process vas passé de **READY** -> **RUNNING**
 
 ### Politics
 #### F-C-F-S | First Come First Served
@@ -27,7 +27,7 @@ Durant ce moment, un autre process vas passé de **READY** -> **RUNNING**
 - non-préemptif
 - pas optimal
 
-En gros, quand process arriver, il est foutue sur le CPU et il partira quand il auras fini 
+En gros, quand process arriver, il est foutue sur le CPU et il partira quand il auras fini
 Les process qui arrive entre 2 sont mis en attente
 
 #### S-J-F | Shortest Job First
@@ -62,12 +62,12 @@ $a = \text{facteur pour pondéré, si a est proche de 1 -> estimation volatile}$
 - Basé sur le **FCFS**
 - Besoin d'un timer
 - préemptif
-- populaire 
+- populaire
 ![alt text](image-3.png)
 ![alt text](image-4.png)
 
 Si Quantum trop faible => trop de changement de context :[
-Si Quantum trop élever => famine 
+Si Quantum trop élever => famine
 Quantum idéale = on veut que 80% des process puisse s'exec normalment durant les burst
 
 Quantum ce trouvent souvant entre 10 - 200 ms
@@ -94,7 +94,7 @@ Mais souvant on a une prio variable (pour eviter la famine). En gros, plus un pr
 BTW, il peut implémenter les priorité variable comme un être normalment constituer
 
 ## C9 Géstion mémoire
-### RAM 
+### RAM
 |Perfomance|Nom|
 |--|--|
 |1ns|Registre|
@@ -152,11 +152,11 @@ Quand un process est libéré que l'on trouve 2 trous adjacent => alors on les f
 ### Espace d'addressage virtuel
 Y a moyen d'avoir des address virtuel qui donne sur aucun address phyisque du coup ===> Espace d'addressage virtuel > Espace d'addressage phyisique
 
-L'espace d'addressage est diviser en 2 partie 
+L'espace d'addressage est diviser en 2 partie
 - Kernel
 - User
 
-Pour une architecture 32 bits on peut allouer 4Go -> 
+Pour une architecture 32 bits on peut allouer 4Go ->
 1Go = Kernel | 3Go = users (y a aussi 2/2 ou du 4/4 mais le 4/4 demande des reconfiguration des la table de traduction du MMU durans les changements de context)
 
 #### 64 bits
@@ -164,11 +164,11 @@ y a trop d'esspace, du coup on utilsie pas tous
 les address utiliser son applé "adresses canoniques"
 (Si on essayer d'aller dans une address non-canonique -> exeption au niveau processeur)
 
-Les bits utiliser pour l'addressage peuvent varier entre 39-57 bits de poids faible 
+Les bits utiliser pour l'addressage peuvent varier entre 39-57 bits de poids faible
 
 ##### Avantage des address virtuel
 - isolation des process
-- gestion facil des adress 
+- gestion facil des adress
 - peremette l'utilisation de memoire étendue
 
 
@@ -193,7 +193,7 @@ Si la page fait 4Ko => 12 bits pour l'offset
 
 ### P-T-E | Page Table Entry
 c'est la table des pages dont je parlais
-contiant : 
+contiant :
 - numéro de page phisique assigner
 - droits d'accés à la page
 - présence en mmoire ou non
@@ -226,7 +226,7 @@ le num de page est divier, le premier indique qu'elle table de page, le second i
 (just la premirer table, elle done l'addre de la table phisique ou ce trouve la seconde table de page)
 
 ## C11 | Extention mémoire et faute de page
-Y a certaine zone mémoire virtuel qui demande des page physique qui ce suivent (**D-M-A** | Direct Memory Access) 
+Y a certaine zone mémoire virtuel qui demande des page physique qui ce suivent (**D-M-A** | Direct Memory Access)
 Typiquement pour les transfère de donné entre une périphérique et le CPU
 ### Bits map
 Pour géré les pages libres, on utilise souvent 2 structure.
@@ -237,7 +237,7 @@ Pour géré les pages libres, on utilise souvent 2 structure.
 
 #### Quand la RAM est plaine
 - Sois on give up (Mémorie Overflow)
-- Sois on transfer des pages sur le disque dûre (vue que le system virtuel est général, ça constie juste a copyer la mémoire à une autre address physique et mettre la table à jour, les process y veront rien j'ai **jurée**) ====> ç s'appel du **swapping** 
+- Sois on transfer des pages sur le disque dûre (vue que le system virtuel est général, ça constie juste a copyer la mémoire à une autre address physique et mettre la table à jour, les process y veront rien j'ai **jurée**) ====> ç s'appel du **swapping**
 Sous windows : **C:/pagefile.sys**
 
 **SWAP** = zone mémoire où on stoke des pages (parfois)
@@ -255,9 +255,9 @@ Fichié mappé = projeter un contenu de fichier dans la mémoire (vue qu'addre v
 
 ### Faute de page
 - Faute de page => page plus en RAM :[
-- Remplacement de la page 
+- Remplacement de la page
 
-Si y a pas la page en RAM et qu'on la demande alors 
+Si y a pas la page en RAM et qu'on la demande alors
 1. Interuption syteme
 2. Noyaux vas chercher la page en mémoire
    a) y a de la place en RAM => :]
@@ -272,7 +272,7 @@ Si y a pas la page en RAM et qu'on la demande alors
 - **validité** = si la page est RAM ou non
 
 
-#### Swaping 
+#### Swaping
 1. l'instruction contenant une ref mémoire est exec
 2. Le MMU check dans la PTE si la ref mémoire est dans la RAM (ave le bit de validté) ==> Si page absente ==> Interuption faute de page
 3. Aller chercher la page manquante
@@ -282,17 +282,17 @@ Si y a pas la page en RAM et qu'on la demande alors
 Remplacement Global :
 - N'importe quelle page peut être remplacée$
 - peut apartenire a n'import quell process
-- Bonne startegie global 
+- Bonne startegie global
 - Permet de préserver des pages du processus en cours d'exec
 Remplacement Local :
 - Seul les pages appartenant au process peuvent être remplacer
-- Pas d'interférence entre les process 
+- Pas d'interférence entre les process
 - Startégie au niveau du CPU seulement
 ### Algorithme de remplacement
 #### OPT (Optimal)
 Algo théorique utilise comme référence
 
-#### FIFO 
+#### FIFO
 On remplace les pages selon l'ordre d'arriver
 Simple | Pas optimal
 #### L-R-U | Least Recently Used
@@ -307,18 +307,18 @@ On peut en faire une version de approcimative en utilisant le **bit de Référen
 #### Seconde chance
 - basé sur **FIFO**
 - utilise le bit de Référence
-- 
+-
 
-Alogo : 
+Alogo :
 - on choisi la page selon l'ordre d'arrivée
 - Si le but R est à 1
-  - la page est considérée comme nouvellement arrivée dans le FIFO 
+  - la page est considérée comme nouvellement arrivée dans le FIFO
   - le bit R est remis à 0
 - si non (R = 0), page remplacer >:[
 
 détaile, en gros on parcourt la list des pages jusuqu'à trouver une page avec R = 0, on la remplace, on avance de 1 et la page où l'on ce trouve devien la tête du FIFO.
 
-Si tous le monde vien d'arrivée => faire du classic FIFO 
+Si tous le monde vien d'arrivée => faire du classic FIFO
 
 
 #### WS-Clock | Work Set Clock
@@ -330,10 +330,10 @@ En gros, ça marche avec un system de time stamp (TDU) et une fenêtre $\delta$ 
 
 - basé sur Seconde chance
 
-Algo : 
+Algo :
 - on regarde la page en tete du FIFO
 - Tester le Bit R
   - 1 => mettre à 0 => set TDU au temps actuel => go next
-  - 0 => 
+  - 0 =>
     - Si la page à une durée de vie (temps actuel - TDU) =< $\delta$ => go next :]
     - Sinon => mort >:[
