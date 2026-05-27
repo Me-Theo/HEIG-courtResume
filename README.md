@@ -32,6 +32,7 @@ don't ask
 ### BA 4
 - GRE
   - [T1](./GRE/TE1.md) | [CHEAT SHEET](./GRE/TE1.pdf)
+  - [T2](./GRE/TE2.md) | [CHEAT SHEET](./GRE/TE2_sheetCheat.pdf)
 - CLD
   - [T1](./CLD/TE1.md) | [CHEAT SHEET](./CLD/TE1.pdf)
 - EAL
@@ -40,6 +41,10 @@ don't ask
   - [T1](./PDL/TE1.md) | [CHEAT SHEET](./PDL/TE1.pdf)
 - POA
   - [CHEAT SHEET/Slide](./POA/coolSlide_1.pdf)
+- ARN
+  - [T2](./ARN/TE2.md)
+- WEB
+  - [T2](./WEB/TE2.md)
 ### BA 5
 
 ### BA 6
