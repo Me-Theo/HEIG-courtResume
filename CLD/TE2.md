@@ -353,3 +353,95 @@ Utilise une interface Web ou un CLI
 - Stack : list des ressource unit utiliser par le cloud (typiquement là ou ce retrouve les liste des vm utiliser pour loadbalancing)
 - Change set : en gros, c'est un sommaire des changement a apporter au ressource déja en route
 
+
+### Terraform
+C'est un outil qui permet faire du IaC opensource
+
+#### Concept
+##### Config file
+décrit la ressource cloud
+Terraform peut géré des composent de bas niveau
+##### Execution plan
+Terraform generates an execution plan describing what it will do to reach the desired state
+##### Resource graph
+Terraform builds a graph of all resources, and parallelizes the creation and modification of any non-dependent resources
+
+![alt text](image-45.png)
+
+##### Principle of Desired State Configuration
+en gros, l'idée c'est que le devops donne un state que les instances doivent atteindre, les outiles determines les difference entre le state targeted et le state actuel, depuis ses difference, les outile quesqu'il faut changer et l'execute vier un a reconcilation loop
+
+#### Common command
+- `terraform int` : Prepares the working directory for other commands.
+  - Creates .terraform directory to store plugins, the currently active workspace, the last known backend configuration, etc.
+  - Downloads plugins
+  - Accesses state in the backend
+- `terraform validate` : Checks whether the configuration is valid.
+- `terraform plan` : Shows changes required by the current configuration without executing them.
+- `terraform apply` : Executes changes to update infrastructure or creates infrastructure if it does not exist yet.
+- `terraform destroy` : Destroys previously-created infrastructure.
+
+#### Example
+```
+provider "aws" {
+  region = "us-east-2"
+}
+resource "aws_instance" "example" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "terraform-example"
+  }
+}
+```
+
+### Configuration management
+#### The problem of entropy
+![alt text](image-46.png)
+
+#### the problème
+manual configation :
+- too easy to make mistakes
+- changes not guaranteed to be repoducible
+- not simple to scale
+- no auto documented
+
+Shell script :
+- script asume the instance is in a certain state, if not, were fucked
+- if script break in the middle of a execution, were fucked
+- unix commands have very diffrente set of option depending of the OS
+
+#### Desired-State Configuration
+En gros, l'idée c'est qu'a la place de dire a un outile ce que l'on veut qu'il face, on lui dit où on veut aller (déclaratife au lieu d'imperatife)
+
+##### Idempotent commands
+c'est des commande qui marche par rapport au state visée
+exemple : ssh-keygen, 1st run = create new key, 2nd run = overwrite old key with new ones
+donc, Idempotent command :
+- prend le state comme input
+- deteremine le state actuel du system
+- compare quoi faire
+- ce demerde pour faire l'action
+
+
+#### Configuration Management Architectures
+##### Puppet: client/server, agent-based
+![alt text](image-47.png)
+##### Ansible: agentless
+![alt text](image-48.png)
+
+
+### Ansible
+Automation engine for cloud provisioning, configuration management and application deployment
+write in **PYTHON**
+
+- collection of hosts = **inventory**
+  - by default, describe it with a text file (inventory file)
+- Host can be grouped, name = [...]
+- playbook
+  - play = host + task
+- Roles = package for playbook, useful if we want to re-use things
+![alt text](image-49.png)
+![alt text](image-50.png)
+
