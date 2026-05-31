@@ -147,6 +147,27 @@ C'est une map qui permette devoir qu'elle partie de l'image a le plus été rega
 
 
 ## 11  APPLICATIONS OF DEEP NEURAL NETWORKS
-...
+1) Classification / recognition / identification
+   - data -> classes (labels/annotations)
+2) Regression
+  - data -> continuous variable
+
+## Fully conected vs convolutianl
+CNN : good for special data (logic since it's a glorify fillter) (pas seulment pour les image, mais aussi sons, time-series, vdeo, etc...) bref tous que est plus proche de l'analyse de donner en contine
+
+
+![alt text](image-21.png)
+
+### Self-Supervised Leraning (SSL)
+similarly to unsupervised learning is a methodology that can learn complex patterns from unlabeled data.
+
+
 ## 12 BEYOND CONVOLUTIONAL NEURAL NETWORKS
-...
+### Auto-encoder
+En gros, c'est netwok qui ce train a crée des version comprésé de truc puis a les décompréser
+![alt text](image-22.png)
+
+de cette idée de prender comme input l'output d'un network et de recrée la matière de base est née la merde de nos jours (generative ai)
+
+#### Graph neural networks
+En gros, c'est un network peut process des graph (et par là on parles surtous de data dont la tail n'est pas fixé a l'avance)
