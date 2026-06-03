@@ -41,6 +41,7 @@ don't ask
   - [T1](./PDL/TE1.md) | [CHEAT SHEET](./PDL/TE1.pdf)
 - POA
   - [CHEAT SHEET/Slide](./POA/coolSlide_1.pdf)
+  - [CHEAT SHEET/Slide 2](./POA/coolSlide_2.pdf)
 - ARN
   - [T2](./ARN/TE2.md)
 - WEB
