@@ -28,7 +28,10 @@ raison:
 ![alt text](image-48.png)
 Tâche B dois commencer au plus 7 jours après le commencement du projet
 
-## Chap
+## Chap 7
+##### Orienter un graph 2 tech
+1) sois simplement on doubles les arrete en 2 arc des 2 sense (simple mais efficase)
+
 
 
 ## Chap 8 2/2
@@ -86,6 +89,12 @@ Besoin que le graph sois fortement connext et sois sans circuit negatife
 5) Faire un couplage parfait de poid min
 6) Dans **$G$** doublé toute les arc qui sont pris par le chemin le plus court entre **$i$** et **$j$**
 7) crée le circuit eulerien
+
+#### Transfromer un grph orienter non-eulerien
+1) trouver les sommets avec un **$|deg_+(v) - deg_-(v)|\geq 1$**
+2) les isolés
+3) ajouter des arc pour équilibrée leur degrées
+4) crée c'est arc sur le graph **$G$**
 
 ### Tranfomer un grpah orienter en graph eulerier a moindre couts
 Faut que le graph sois connext
