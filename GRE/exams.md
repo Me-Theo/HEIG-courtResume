@@ -1,7 +1,4 @@
 # Exams
-#### Explotation
-Quand il parle d'exploitation, il ne parle d'une solution concret mais just d'une debut de methodologie et qu'elle truc on peut tirée du graph
-
 ## Dijkstra bidirectionnel
 3 truc
 **(forward)** fils de prio **$Q_f$** et mark **$\lambda$**
@@ -105,10 +102,34 @@ Faut que le graph sois connext
 5) les arc pris par la resolution sont a inversé
 
 
-#### Type de problème → type de modélisation
-Problème de duo → couplage (logic)
-Problème de repartition de ressource → flow max
 
+#### Trouver si un graph a une arborésance recouvrant en temp linéaire
+posé **$s = $** premier sommet traiter  **$u = $** denier sommet a finir son traitment
+1) DFS
+2) si **$s=u$** → Arboésence recouvrante a la racine **$s$**
+3) sinon, parcoure le graph depuis **$u$**, Si l'arborescnece d'explo obtenue est recouvrante, problème resolue, si non sad
+
+
+#### Preuve graph eulerien
+denoté les 2 sommets expetion **s et t**
+montre que le graph à un chemin eulerien mais pas un circuit
+- Pour tous sommets sauf 2 (**s** et **t**)
+  **$\sum{degré-} = \sum{degré+}$**
+- Pour **s** et **t**, **$|deg_+ - deg_-| = 1$**
+
+pour cercuit, on doit avoir
+- Pour tous sommets
+  **$\sum{degré-} = \sum{degré+}$**
+
+
+
+#### Type de problème → type de modélisation
+- Problème de duo → couplage (logic)
+- Problème de repartition de ressource → transbordement → flow max
+- Problème de recherche de N chemin différent → flow max en utilisant la tech de split les sommets
+- Problème de recherche de chemin en minisant le nombre de ressource global → recherche d'arbre recouvrant de poid min
+- Trouver qu'elle arc est a bloquer / supprimer → recherche de Coupe → flow max
+- Trouver les chemin pour maximiser les ressource passantes → flow max
 
 
 
@@ -119,4 +140,6 @@ Problème de repartition de ressource → flow max
 |Sommet| sommets |
 |Arret| truc qui relie des sommets mais pas orienter|
 |Arc|arret orienter|
-|||
+|exploitation|just dire comment on pourrait s'en servire|
+|Demi-degrée|degrée + ou -|
+|Arbre|Graph sans cycle|
