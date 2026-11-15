@@ -165,3 +165,190 @@ $x$ = solution courant | $x*$ = meilleur solution rencontrée pour l'instant | $
 - Réchaufement prériodique : au lieu de s'arréter quand on bouge plus, on peut tenter d'augmenter la température pour voir si ça débloque
 - Choix de $\alpha$ : proche de 1, typiquement $\alpha = 0.95$
 - Théorèems de convergence : si on itère assé de fois, on peut trouver la meilleur solution mais ça peut tendre ver l'infinit lol
+
+
+# Simulation et Optimisation
+## Programmation linéaire
+l'idée est de resoudre un problème d'optimisation linaire avec un set de variable donnée, en gros, on cherche a optimizer des variable
+
+![alt text](image-21.png)
+*fallait que je le mette*
+
+###### Exemple
+![alt text](image-22.png)
+
+
+### Definition étape
+1) definir des **variables de décision** → les variable qui influance le truc qu'on cherche a optimizer
+2) exprimer la **fonction objectif**
+  $z = \sum{C_nx_n}$
+  avec $x_n = $ variable et $C_n = $constant
+3) exprimer les **contraintes**
+   $x_1 + x_2 > 10$ par exemple
+4) resolve
+
+## Programme linéaire (PL)
+![alt text](image-23.png)
+![alt text](image-24.png)
+![alt text](image-25.png)
+![alt text](image-26.png)
+![alt text](image-27.png)
+![alt text](image-28.png)
+
+## Forme canonique d'un PL
+###### Maximisation
+![alt text](image-29.png)
+toutes les variables sont **non négatives**
+toutes les autres contraintes sont du type **$\ge$**
+
+![alt text](image-30.png)
+
+#### Régles de tranformation
+###### MIN → MAX
+$min f(x) = -max(-f(x))$
+
+minimizer une function $z = (\vec{c})^{T}\vec{x} \Longrightarrow w = (-\vec{c})^{T}\vec{x}$
+###### inéquation "$\ge$" → "$\le$"
+$a_1x_1 + ... + a_nx_n \ge b \Longrightarrow - a_1x_1 - ... - a_nx_n \le b$
+
+###### Équoation → inéquoation "$\le$"
+$a_1x_1+ ... + = b \Longrightarrow \begin{cases}
+  a_1x_1+ ... + \ge b \\
+  a_1x_1+ ... + \le b
+\end{cases}
+$
+
+###### inéquoation "$\le$" → Équoation
+$a_1x_1 + ... + \le b \Longrightarrow \begin{cases}
+  a_1x_1 + ... + s = b \\
+  s \ge 0
+\end{cases}$
+###### Variable libre (réelle) → Variable non négative
+$x\in \mathbb{R} \Longrightarrow \begin{cases}
+  x=x^+ - x^- \\
+  x^+, x^- \ge 0
+\end{cases}$
+###### Variable bornée inférieurement
+$x \ge b \Longrightarrow \begin{cases}
+  x=x' + b \\
+  x' \ge 0
+\end{cases}$
+
+###### Exemple
+![alt text](image-31.png)
+![alt text](image-32.png)
+
+### Techniques de linearisation de base
+![alt text](image-34.png)
+#### Linéarisation d’un min ou d’un max
+$min(x_1 + x_2, x_2 + x_3, ...) \ge 5 \Longrightarrow \begin{cases}
+  x_1 + x_2 \ge 5 \\
+  x_2 + x_3 \ge 5 \\
+  ... \ge 5
+\end{cases}$
+
+$max(x_1 + x_2, x_2 + x_3, ...) \le 5 \Longrightarrow \begin{cases}
+  x_1 + x_2 \le 5 \\
+  x_2 + x_3 \le 5 \\
+  ... \le 5
+\end{cases}$
+
+**!! $min(...) \le exp$ ou $max(...) \ge exp$ ne sont pas linéarisables!!**
+
+#### Linéarisation des objectifs "mini-max"
+"min-max" = $Min\space z = max(...)$
+
+- on crée $t$ pour crée
+  $$
+  \begin{cases}
+    Min \space z = t \\
+    (s.c.) \space t = max(...)
+  \end{cases}
+  $$
+- il faut just re-écire la solution sous form d'une inéquoation
+  $$\begin{cases}
+    Min \space z = t \\
+    (s.c.) \space t \ge max(...)
+  \end{cases}
+  $$
+
+- $Max\space z = min(...)$
+  $$\begin{cases}
+    Max \space z = t \\
+    (s.c.) \space t \le min(...)
+  \end{cases}
+  $$
+
+**!! "min - min" et "max - max" pas possible!!**
+
+###### Exemple
+![alt text](image-35.png)
+![alt text](image-36.png)
+
+#### Linéarisation d’une valeur absolue (contrainte)
+$|exp_1| \ge exp_2 $
+pareille que
+$-exp_2 \le exp_1 \le exp_2 \Longrightarrow \begin{cases}exp_1 \ge exp_2 \\
+exp_1 \le exp_2
+\end{cases}$
+![alt text](image-37.png)
+![alt text](image-38.png)
+
+#### Linéarisation d’une valeur absolue (objectif)
+- Objectif non linéaire $Min z = |exp_1|$
+- peut être re-écrit
+
+  $$\begin{cases}
+  Min\space \space \space \space z = t\\
+  s.c.\\ t \ge |exp_1|\\
+  t \ge 0
+  \end{cases}$$
+
+  ($x = b \Longrightarrow x \ge b$)
+
+- ce qui devien
+
+  $$\begin{cases}
+  Min\space \space \space \space z = t\\
+  s.c.\\
+  -t \le exp_1 \le t\\
+  t \ge 0
+  \end{cases}$$
+
+![alt text](image-39.png)
+
+
+###### EXO
+$\delta_i = |f(x_i) - (ax^2_i+bx_i + c)|$
+![alt text](image-40.png)
+![alt text](image-41.png)
+![alt text](image-42.png)
+
+Min $z=max(\delta_i)$
+![alt text](image-43.png)
+![alt text](image-44.png)
+
+#### Mini system dans la contrainte
+![alt text](image-45.png)
+![alt text](image-46.png)
+
+###### approche 1
+on voie la fonction comme un minimum de plusieur fonction
+![alt text](image-47.png)
+![alt text](image-48.png)
+![alt text](image-49.png)
+devien donc
+![alt text](image-50.png)
+sois
+![alt text](image-51.png)
+![alt text](image-52.png)
+
+###### approche 2
+on pose
+![alt text](image-53.png)
+on ajout les contraintes
+![alt text](image-54.png)
+on voie donc $f(...) comme$
+![alt text](image-55.png)
+créeant
+![alt text](image-56.png)
