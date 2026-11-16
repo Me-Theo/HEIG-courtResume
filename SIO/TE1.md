@@ -55,6 +55,7 @@ L'idée du problème est de trouver la tounrée la plus court passan par tous le
 ###### Plus proche voisin
 choisire une ville au hazard → choire la vile la plus proche de celle-ci → repeate
 ![alt text](image-8.png)
+(version "par les deux bouts" veux dire qu'on fait le tours des 2 sense en partant de la vile de base)
 ###### Goulton
 l'idée est de construire un cycle hamiltonien
 1. parcourt les arètes de la plus courte à la plus long et sélectionner une arète si
@@ -77,6 +78,8 @@ l'idée est de construire un cycle hamiltonien
 ![alt text](image-10.png)
 ![alt text](image-11.png)
 ![alt text](image-12.png)
+![alt text](image-57.png)
+![alt text](image-58.png)
 **Facteur d'approximation** = $L' \le \frac{3}{2}L*$ ou $L* = $ la longueur optimal
 
 ###### Meilleur fusion
@@ -85,7 +88,7 @@ l'idée est de construire un cycle hamiltonien
 3. on fusion les arrète dans l'ordre décroissant des gains qu'elle apporte
 
 ![alt text](image-13.png)
-![alt text](image-14.png)
+![alt text](image-59.png)
 
 ### Heuristiques d'amélioration et d'échange
 en gros l'idée c'est de proposer une solution admisible → amélioré la solution localment → répéter
@@ -271,11 +274,22 @@ $max(x_1 + x_2, x_2 + x_3, ...) \le 5 \Longrightarrow \begin{cases}
     (s.c.) \space t \ge max(...)
   \end{cases}
   $$
+- ce qui devien
+  $$\begin{cases}
+    Min \space z = t \\
+    (s.c.) \space t \ge ...
+  \end{cases}
+  $$
 
 - $Max\space z = min(...)$
   $$\begin{cases}
     Max \space z = t \\
     (s.c.) \space t \le min(...)
+  \end{cases}
+  $$
+  $$\begin{cases}
+    Max \space z = t \\
+    (s.c.) \space t \le ...
   \end{cases}
   $$
 
@@ -293,6 +307,11 @@ exp_1 \le exp_2
 \end{cases}$
 ![alt text](image-37.png)
 ![alt text](image-38.png)
+dans un cas non linelisable, comme par exemple :
+$|x_1 - x_2| \le x_1 + x_2$
+on peut transformer la contraint en :
+$x_1 - x_2 \le x_1 + x_2$ et $x_1 - x_2\ge -x_1 - x_2$
+
 
 #### Linéarisation d’une valeur absolue (objectif)
 - Objectif non linéaire $Min z = |exp_1|$
@@ -314,7 +333,7 @@ exp_1 \le exp_2
   -t \le exp_1 \le t\\
   t \ge 0
   \end{cases}$$
-
+**Approximation de Tchebychev**
 ![alt text](image-39.png)
 
 
@@ -352,3 +371,35 @@ on voie donc $f(...) comme$
 ![alt text](image-55.png)
 créeant
 ![alt text](image-56.png)
+
+
+### Formulation
+
+###### Variable de decition
+  - $x_1$ = ...
+  - $x_2$ = ...
+  ...
+###### Fonction objective
+$Min\space z = ....$
+*plus transformation si besoin dans le cas min-max ou inégaliter*
+###### contraint
+(1) $x_1 + x_2 \ge 0$
+(2) ...
+finaliser toujour sous form
+$x_1 + x_2 \ge \space \space n$
+
+#### Preuve pour un algo
+en gros, tu veux trouver une form $L < 3C(T) < 4L*$ par exemple
+bref, montré que l'apporximation est au pire aussi grand que n fois le meilleur
+
+aussi :
+- $c(T) = $ poids de l'arbre
+- $L* = $ longeur de la tournée optimal
+- $L = $ longeur de la tournée a analyser
+
+#### Resoudre un programme linéaire calculs
+- trouver le point opt
+- voir qu'elle contraint sont appler
+- resoudre le system d'op en maximisant les contraint
+  $x_1\ge 1 \Longrightarrow x_1 = 1$
+**contraint active a l'optimum** = contraint qui joue sur le resulta de l'optimum
