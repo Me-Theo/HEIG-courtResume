@@ -1,3 +1,18 @@
+# NoSQL
+# Couchbase N1QL
+c'est des json avec des shema donné
+- y a des clef étrangère
+- on peut imbriqué des donner, comme en JSON
+
+###### Dico
+- Item : clés-valeur
+- Bucket : database qui regroupe les items
+- Collection : organise les doc a l'interieur d'une Bucket
+- Scope : groupe plusieur Collections
+
+![alt text](image-16.png)
+
+# Neo4j
 # Modèle de Distribution et Cohérence
 SGBD = Système de gestion de base de données
 #### Architecture
@@ -179,3 +194,52 @@ la cohérence peut devenir difficile vue qu'il faut que les requet garde leur in
 ![alt text](image-10.png)
 
 #### Niveau d’isolation des transactions
+(+) niveau d'isolation est élevé, (-) y a d'anomalie mais ... REQ lente 🥀
+![alt text](image-11.png)
+
+#### Traitement des transactions dans NoSQL
+- Centraliser : simple à géré, ACID, isolé
+- distribué : faut coordonner la validation entre les nodes. Exemple avec un PROTO 2PC
+
+###### Cohérence de la réplication
+en gros, au bout d'un certain temps, l'ecriture est repliqué et :
+- Cohérence a terme (Eventual consistency)
+-  En attendant : données périmées (stale data)
+
+###### Incohérence de réplication
+![alt text](image-12.png)
+
+#### Le théorème de CAP
+Consistency:
+- après une maj, tous les read vois la meme donné
+Availability:
+- Si une node fontionne, il peut R/W les données → chaque demande dois être repondue
+Partition tolerance:
+- Le systeme continue à fonctionner meme si 2 ensemble de server sont isolé
+- Echec de connexion → continue a fonction 🗿
+
+**Theorème** : un system de donné distribuer peut pas avoir les 3 props de CAP, 2 / 3 c'est possible par contre
+
+###### Raison
+![alt text](image-13.png)
+on doit choisir entre la cohérence parfait ou la disponibilité parfait
+- si cohérent → prend du temps donc pas disponible
+- si disponible → alors pas le temps de checker donc pas cohérent
+
+Solution : faut faire du cas par cas et des entre deux 😭
+
+## Recherche d'information
+c'est les REQ sur un doc (text, video, image, raw data)
+
+#### Paradox de la RI
+REQ ideal contient toutes les infos que cherche le user
+mais le user est con et du coup il sait pas ce qu'il ne connait pas
+
+### Modèle de RI
+en gros
+- document → pré-structuré → data
+- req du user → REQ structuré → besoin claire
+- data into besoin claire → bonne data
+
+![alt text](image-14.png)
+
