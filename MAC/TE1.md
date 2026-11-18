@@ -119,3 +119,63 @@ $n$ = nombre impaire (3 ou 5)
 $w = r = (n + 1) / 2$ (arrondi au supérieur)
 
 
+## Partitionnement
+![alt text](image-2.png)
+#### Comment partitioner
+- Equitable
+  - Chaque node gère sa part de données
+  - peux augmenter le debit global
+- Asymétrique
+  - certaine partition contiennent plus de donné et recoive plus de requet
+  - peut crée des hot spots
+
+###### Partitionner les clé-valeur
+En gros, on hash les clé pour trouver la valeur
+genre exemple : floor(key / page_size) = node_id
+
+ça garentie pas que les clé sois bien répartie
+
+###### hashage de clé (pour de vrais)
+on fait des bucket, c'est just une hash map lol
+
+mais on peut plus faire des requet efficace vue les clef sont plus stocker de manière adjacents 🥀
+
+#### Rééquilibrage des partitions
+Au fil du temps :
+- (+) debit de requêtes
+- (+) size de la DB
+- (+) machine qui peuvent tombé en panne
+
+*noob* : hash % nombre_node → fait qu'on bouge tous a chaque fois
+
+🗿**pro** : quand on ajouter une node, elle vas voler des partition autre node jusqu'à que se sois équilibré. Si on supprime, on fait la meme a l'inverse
+
+*🤓☝️ erm actually :* ça peut fait de manière automatique ou manuel ou des entre 2
+
+### Request Routing
+Comment on sait quel node est concerné par les requets ?
+![alt text](image-4.png)
+3 approche :
+- **Routage par les noads** : le client contcte n'import quelle node (round-robin). Si la noad a la partition on est good, sinon on transmet
+  ![alt text](image-3.png)
+- **Couche de routage** : y a une couche dedier au routage qui dit quelle node est repsonsable de chaque demande, elle traite pas la demande, just la rebalance
+  ![alt text](image-5.png)
+- **Conscience du client** : le client connait les partitions, y a plus de problème
+  ![alt text](image-6.png)
+
+#### Service discovery
+###### ZooKeeper
+genre c'est une base qui gère les metadonné pour svaoir dans quel node ce trouve les données
+![alt text](image-7.png)
+il fait autorité
+
+##### Cohérence dans les bases de données
+la cohérence peut devenir difficile vue qu'il faut que les requet garde leur intégriter alors que les donné sont repartie
+###### Conflit d’écriture (dirty write)
+![alt text](image-8.png)
+**eviter** : en gros faut mettre un verrous, pessimiste (faut l'aquérire et après on fait ce que l'on veut) ou optimist (on fait rien et s'il y a un problème on régle)
+###### Conflit de lecture (dirty read)
+![alt text](image-9.png)
+![alt text](image-10.png)
+
+#### Niveau d’isolation des transactions
