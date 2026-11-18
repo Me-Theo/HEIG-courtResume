@@ -47,5 +47,11 @@ don't ask
 - WEB
   - [T2](./WEB/TE2.md)
 ### BA 5
+- SIO
+- MAC
+  - [T1](./MAC/TE1.md) | [CHEAT SHEET](./MAC/TE_1-cheatsheet.pdf)
+- DAA
+- AMT
+  -
 
 ### BA 6

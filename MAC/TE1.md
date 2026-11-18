@@ -9,10 +9,17 @@ c'est des json avec des shema donné
 - Bucket : database qui regroupe les items
 - Collection : organise les doc a l'interieur d'une Bucket
 - Scope : groupe plusieur Collections
+- Index : c'est structure a part qui contein une copie de certain champ pour aider les recherche
+  - Index Primaire : classic clef
+  - Index secondaire : c'est index sur n'import quelle champs (possiblement plusieur)
 
 ![alt text](image-16.png)
-
 # Neo4j
+![alt text](image-18.png)
+index = point de départ pour la recheche
+faut le populé (faire gaff a pas ajouter 2 fois le meme)
+
+
 # Modèle de Distribution et Cohérence
 SGBD = Système de gestion de base de données
 #### Architecture
@@ -212,8 +219,10 @@ en gros, au bout d'un certain temps, l'ecriture est repliqué et :
 #### Le théorème de CAP
 Consistency:
 - après une maj, tous les read vois la meme donné
+
 Availability:
 - Si une node fontionne, il peut R/W les données → chaque demande dois être repondue
+
 Partition tolerance:
 - Le systeme continue à fonctionner meme si 2 ensemble de server sont isolé
 - Echec de connexion → continue a fonction 🗿
@@ -242,4 +251,11 @@ en gros
 - data into besoin claire → bonne data
 
 ![alt text](image-14.png)
+
+### Modèle de recherche booléen
+en gros, les requet sont des expressions booléen
+**Vecteur d'incidence** → 110 && 010 = <010>
+Indéxé du text :
+Tokenisation → Normalisation → Steeming (racinisation) (keeper, keep = racine "keep") → Stop word (on dégage les "the", "a", "to", ...)
+
 
